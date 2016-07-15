@@ -1,5 +1,4 @@
 @import "../config/base-vars";
-@import "../mixins/miwt-switch";
 @import "../../../../bower_components/bootstrap/scss/mixins/buttons";
 
 /* ==========================================================================
@@ -12,15 +11,13 @@
    ========================================================================== */
 
 .prop-wrapper {
-	//max-width: 50rem;
-	max-width: 100%;
+	max-width: 50rem;
 
 	input,
 	textarea {
-		border: 1px solid #B7B7B5;
-		padding: 2px 5px;
+	  	border: 2px solid $color-app-lightest-grey;
+		padding: 2px;
 		margin: 2px;
-		border-radius: $border-radius-lg;
 	}
 
 	input:focus,
@@ -41,21 +38,18 @@
 	}
 
 }
-input[type=number]{
-	width:8ch;
-}
 
 /* Content
 	 ========================================================================== */
 .prop-wrapper {
 	.prop-header-title {
 		font-size: 22px;
-		font-weight: 500;
+		font-weight: bold;
 		margin: 1em 0;
 	}
 
 	.prop-group-title {
-		font-weight: 500;
+		font-weight: bold;
 		font-size: 18px;
 		margin: 10px 0;
 	}
@@ -64,7 +58,7 @@ input[type=number]{
 	}
 	.prop > label {
 		display: block;
-		font-weight: 400;
+		font-weight: bold;
 		user-select: none;
 	}
 	.prop > label.tbl {
@@ -97,8 +91,7 @@ input[type=number]{
 		margin-bottom: 0;
 	}
 
-	.user-entry-required label:after,
-	.user-entry-required caption:after{
+	.user-entry-required > label:after {
 		content: "*";
 		color: #ff0000;
 	}
@@ -118,11 +111,6 @@ input[type=number]{
 	.actions.top {
 		display: none;
 	}
-
-	.address > span {
-		display: block;
-	}
-
 }
 
 .prop-editor {
@@ -132,24 +120,16 @@ input[type=number]{
 		input[type=url],
 		input[type=tel],
 		textarea {
-			//min-width: 25rem;
-			width: 45%;
+			min-width: 25rem;
 		}
 
 		.actions {
 			@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius-sm);
 		}
-		span.rtb + span.rtb {
-			padding-left: 1rem;
-		}
-		span.ctb + span.ctb {
-			padding-left: 1rem;
-		}
 	}
 	.miwt-calendar {
 		input[type=text] {
 			min-width:8rem;
-			max-width: 8rem;
 		}
 	}
 }
@@ -176,72 +156,4 @@ input[type=number]{
 		border-radius: 100%;
 		max-height: 200px;
 	}
-}
-
-@media (max-width: 767px) {
-	.prop-editor {
-		.prop {
-			input[type=text],
-			input[type=email],
-			input[type=url],
-			input[type=tel],
-			textarea {
-				width: 100%;
-			}
-		}
-	}
-}
-
-.prop.schedule {
-	width: 100%;
-	margin-top: 1rem;
-
-	> div {
-		width: 8rem;
-		.select2-container {
-			max-width: 100%;
-			width: 100% !important;
-		}
-
-		&.repeat-interval-wrapper {
-			display: inline-block;
-			margin: 2rem 1rem 0 0;
-			+ .frequency {
-				display: inline-block;
-				vertical-align: top;
-				margin: 2rem 0 1rem;
-				padding: 0;
-
-				> label {
-					display: block;
-					color: transparent;
-				}
-			}
-		}
-		&.by, &.dom {
-			padding: 0;
-			margin-bottom: 1rem;
-		}
-	}
-	.prop.dow {
-		span.ctb + span.ctb {
-			padding-left: 0;
-		}
-	}
-	.prop.repeat {
-		display: inline-block;
-		margin: 0;
-		padding: 0;
-		@include checkboxSwitch(false, 6ch);
-		width: 100%;
-	}
-
-	span.rtb.label-after {
-		display: block;
-
-		+ span.rtb.label-after {
-			padding-left: 0;
-		}
-	}
-
 }

@@ -15,34 +15,12 @@
 	margin-right: 25px;
 	@include bootstrapButton;
 	@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-	padding: 0 !important;
-
-	> a.menu-item {
-		font-size: 1rem;
-		line-height: 1.5;
-		&:before {
-			font-size: .8rem;
-			display: inline-block;
-			margin-top: -2px;
-			vertical-align: middle;
-		}
-	}
-
 }
 
 /* Search Bar
    ========================================================================== */
 .search-bar {
 	margin: 10px 0;
-	padding: 10px;
-	//background-color: #F9F9F7;
-	//border: 1px dotted #CBC8B9;
-
-	input[type="text"] {
-		border: 1px solid #aaa;
-		border-radius: $border-radius-lg;
-	}
-
 }
 
 .search-bar .constraint {
@@ -50,18 +28,23 @@
 	white-space: nowrap;
 	margin: 5px;
 	padding: 5px;
-
+  vertical-align: top;
 }
 
 .search-bar .constraint label {
 	display: block;
-	font-size: 90%;
-	margin-bottom: .25rem;
+  font-family: $font-raleway;
+  color: $color-app-black;
+  font-weight: 400;
+  font-size: .85rem;
+  margin-bottom: .15rem;
+  text-transform: uppercase;
 }
 
 .search-bar .search-actions {
 	display: inline-block;
 	padding: 10px;
+  	margin-top: 22px;
 }
 
 .constraint-input-conjunction {
@@ -73,8 +56,7 @@
 .search-wrapper .entity-actions,
 .search .entity-actions {
 	float: right;
-	margin-top:-1rem;
-	margin-bottom: 1rem;
+  	margin-top: -3.25rem; //This may have to get more specific
 }
 
 .search-wrapper .result-actions,
@@ -154,21 +136,80 @@ select.bulk_actions {
 	min-width: 8rem;
 }
 
-.search-bar .range-constraint {
+
+
+.search-bar {
+
+  input[type="text"] {
+	border: 2px solid $color-app-lightest-grey;
+  }
+
+  .range-constraint {
 	white-space: normal;
 	select {
-		min-width: 6rem;
+	  min-width: 6rem;
 	}
 	.constraint-label {
-		display: block;
+	  display: block;
 	}
 	.miwt-calendar{
-		margin-top:4px;
+	  margin-top:4px;
 	}
 	.constraint-operator,
 	.miwt-calendar,
 	.constraint-input-conjunction {
-		white-space: nowrap;
-		display: inline-block;
+	  white-space: nowrap;
+	  display: inline-block;
 	}
+  }
+
+  .constraint.specialty_labels {
+	.select2-container {
+	  width: auto !important;
+	  max-width: 20rem;
+	  min-width: 8rem;
+	}
+  }
+
+  .actions.search-actions {
+	.btn {
+	  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
+	}
+  }
+
+  .constraint.company_customer {
+	.select2-container {
+	  width: 100% !important;
+	}
+  }
+
+  .constraint.state {
+	.select2-container {
+	  min-width: 70px !important;
+	}
+  }
+
+}
+
+@media (max-width: 600px) {
+  .search .entity-actions, .search-wrapper .entity-actions {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	margin-top: 0;
+
+	#admin-template & {
+	  top: -20px;
+	}
+  }
+  .search-bar {
+	.constraints {
+	  .constraint {
+		width: 45%;
+		input[type="text"], .select2-container {
+		  width: 100% !important;
+		}
+	  }
+	}
+  }
 }

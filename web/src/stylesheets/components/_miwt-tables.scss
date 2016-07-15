@@ -2,23 +2,10 @@
 
 .miwt-table {
 	@include style-table;
-	font-size: 90%;
 
 	> thead > tr {
 		> th {
-			//@include style-table-heading;
-			background: lighten($color-app-light-grey, 25%);
-			color: $color-app-grey;
-			font-family: $font-roboto;
-			line-height: 24px;
-			padding: 5px 8px;
-			text-align: left;
-			font-weight: 400;
-
-			a {
-				color: $color-app-grey;
-			}
-
+			@include style-table-heading;
 		}
 	}
 
@@ -29,9 +16,6 @@
 		caption-side: top;
 		text-align: left;
 		margin-top: -2.5rem;
-		font-size: 1rem !important;
-		font-weight: 400 !important;
-		color: $color-app-grey;
 	}
 }
 
@@ -156,11 +140,4 @@
 .miwt-clear-row-selection th{
 	text-align: center;
 	background-color: #FFFFCC;
-}
-
-@media (max-width: 600px) {
-	.miwt-table-con {
-		max-width: 100vw;
-		overflow: auto;
-	}
 }

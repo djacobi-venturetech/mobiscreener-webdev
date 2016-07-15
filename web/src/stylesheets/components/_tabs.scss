@@ -1,46 +1,55 @@
-@import "../mixins/tabs";
+@import "../config/base-vars";
 
-.nav-actions {
-	text-align: right;
-	margin-bottom: -2.55rem;
-	padding-right: .8rem;
-	.btn, .btn:first-child {
-		color: $brand-primary;
-		background-color: $color-white;
-		&:hover {
-			background-color: $color-smokey-white;
-			color: darken($brand-primary, 5%);
-		}
-	}
-	.back /*, .other */ {
-		/*visibility: hidden;*/
-		padding:0;
-		border:none;
-		width:3rem;
-		height:2.275rem;
-		overflow: hidden;
-		color: #fff;
-		&:before {
+@mixin style-tab-elements {
+	$color-bg: $color-smokey-white;
+	$color-bg-selected: $color-white;
+	$color-fg: $color-darker-grey;
+
+	.tab-items {
+		margin-bottom: -1px;
+		padding-left:0;
+
+		.ti {
 			display: inline-block;
-			font: normal normal normal 14px/1 FontAwesome;
-			font-size: inherit;
-			text-rendering: auto;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			visibility: visible;
-			@include button-variant($color-app-grey, $btn-secondary-bg, $btn-secondary-border);
-			@include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $line-height, $btn-border-radius);
-		}
-		&:hover:before {
-			background-color: $color-smokey-white;
-			color: darken($color-app-grey, 10%);
+			vertical-align: bottom;
+			border: 1px solid $color-lighter-grey;
+			margin-right: 5px;
+			font-family: $font-family-sans-serif;
+
+			a {
+				background-color: $color-bg;
+				color: $color-fg;
+				text-decoration: none;
+				display: block;
+				padding: 5px 10px;
+			}
+			&:hover {
+				a {
+					color: $color-light-charcoal;
+					background-color: $color-almost-white;
+				}
+			}
+			&.tab-selected {
+				border-bottom-color: $color-bg-selected;
+
+				a {
+					color: $color-fg;
+					background-color: $color-bg-selected;
+				}
+			}
 		}
 	}
-	.back:before {
-		content: '\f112';
+
+	.tab-content {
+		background-color: $color-white;
+		border: 1px solid $color-lighter-grey;
+		padding: 15px;
 	}
 }
-
+.nav-actions {
+	text-align: right;
+	margin-bottom: -1.75rem;
+}
 .tab-container {
 	@include style-tab-elements;
 }

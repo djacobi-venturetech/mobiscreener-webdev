@@ -3,19 +3,14 @@
 @import "../../../../bower_components/bootstrap/scss/mixins";
 @import "../../../../bower_components/bootstrap/scss/buttons";
 
-#main-content {
-	min-height: calc(100vh - 87px); //window height - footer
-}
-
 .login-body {
 	background-color: #f1f2f7;
 }
 
-.action-login, .action-password {
-	@extend .btn-block;
-	@extend .btn-lg;
-	font-weight: 300;
-	text-transform: uppercase;
+.action-login {
+	@extend .btn-block !optional;
+	@extend .btn-lg !optional;
+	@extend .btn-login !optional;
 }
 
 .form-signin .title {
@@ -61,37 +56,21 @@
 	box-shadow: none;
 	font-size: 12px;
 	padding:2px 4px;
-	width: 100%;
 }
 
 .form-signin .action-login,
-.form-signin button.submit,
-.form-signin .action-password {
+.form-signin button.submit {
 	background: $btn-primary-bg;
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: 300;
-	//box-shadow: 0 4px darken($btn-primary-border, 12%);
+	box-shadow: 0 4px darken($btn-primary-border, 12%);
 	margin-bottom: 20px;
-
-	&:hover {
-		background-color: darken($btn-primary-bg, 15%);
-		color: $color-white;
-	}
-
 }
 
 .form-signin p {
 	text-align: center;
 	margin: 0;
-}
-
-.label, label {
-	font-weight: 500;
-	display: block;
-	padding: 0;
-	margin-bottom: .25rem;
-	text-align: left;
 }
 
 .form-signin a {
@@ -140,39 +119,10 @@
 	float:left;
 }
 
-
-.set-pw-intro {
-	padding: 1rem;
-	font-weight: 400;
-	color: $color-app-grey;
-	text-align: center;
-	max-width: 50rem;
-	margin: 100px auto 0;
-
-	h3 {
-		color: $color-app-brand;
-	}
-
-	p {
-		margin-bottom: 0;
-	}
-
-	+ .password-reset.form-signin {
-		margin-top: 1rem;
-		max-width: 30rem;
-
-		.action-password.btn {
-			max-width: 16rem;
-			margin: 0 auto 20px;
-		}
-
-	}
-
-}
-
 #authentication {
 	background-color: #f1f2f7;
 }
+
 .form-signin, .form-signout {
 	max-width: 375px;
 	margin: 100px auto 0;
@@ -180,89 +130,30 @@
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
-.form-signin .fields{
-	text-align: left;
-	padding:20px 3rem;
+
+.form-signin .message-container{
+	margin-top: 10px;
 }
+
+.form-signin .fields{
+	text-align: center;
+	padding:20px;
+}
+
 .form-signin .message-container,
 .form-signin .actions {
 	padding-left:20px;
 	padding-right:20px;
 }
-.form-signin {
 
-	.text p, .password-rules {
-		color: $color-app-grey;
-		font-size: 90%;
-	}
-
-	.message-container{
-		margin: 10px 0 25px;
-	}
-
-	.retrieve-password {
-		padding: 10px 0;
-
-		div.email {
-			padding: 0 3rem 15px;
-			text-align: left;
-
-			> span {
-				color: #444;
-				font-weight: 500;
-				font-size: 90%;
-			}
-
-		}
-
-		.submit {
-			border: 1px solid transparent;
-			@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-			@extend .btn-block;
-			@extend .btn-lg;
-		}
-
-	}
-
-	.actions {
-		text-align: center;
-	}
-
-}
-
-.password-reset {
-	.password-rules { padding: 25px 20px 0; }
-
-	.username .value { color: $color-app-grey; font-size: .9rem; }
-
-	.actions {
-		padding-bottom: 25px;
-	}
-
-	.fields {
-
-		> .field { margin-bottom: 15px; }
-	}
-
-	.label label, .value input {
-		margin-bottom: 0;
-		font-size: 90%;
-	}
+.form-signin .retrieve-password {
+	padding: 10px 0;
 }
 
 .form-reset #retrieve-password {
 	text-align: center;
 }
+
 header#main-header {
 	display: none;
-}
-
-@media (max-width: 600px) {
-	.set-pw-intro {
-		margin-top: 1rem;
-
-		h3 {
-			padding-left: 0 !important;
-		}
-	}
 }

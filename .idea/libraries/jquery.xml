@@ -1,5 +1,10 @@
 <component name="libraryTable">
   <library name="jquery" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/bower_components/jquery/dist/jquery.js" />
+      </sourceFilesUrls>
+    </properties>
     <CLASSES />
     <JAVADOC />
     <SOURCES>

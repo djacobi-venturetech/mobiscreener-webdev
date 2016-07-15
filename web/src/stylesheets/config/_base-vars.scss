@@ -5,10 +5,14 @@ $color-app-light-blue: #4AB0D5;
 $color-app-cyan: #6CCAC9;
 $color-app-red: #EE695B;
 $color-app-black: #343940;
+$color-app-dark-grey: #53565c;
 $color-app-grey: #515B6B;
 $color-app-light-grey: #9699A6;
+$color-app-lighter-grey: #a7a7a7;
+$color-app-lightest-grey: #a9a7aa;
+$color-app-beige: #dbd5cb;
 
-$app-page-bg: #F1F2F7;
+$app-page-bg: #ebeae6;
 
 $body-bg: $app-page-bg;
 $brand-primary: $color-app-brand;
@@ -49,9 +53,11 @@ $color-charcoal: #333;
 
 $color-cornsilk: cornsilk;
 
+$font-raleway: "raleway", sans-serif;
 $font-monospace: monospace;
 $font-arial: $font-family-sans-serif;
 $font-open-sans: Open Sans, $font-arial;
+$font-source-sans: "source-sans-pro",sans-serif;
 $font-roboto: "Roboto", $font-family-sans-serif;
 
 $font-default-color: $color-black;

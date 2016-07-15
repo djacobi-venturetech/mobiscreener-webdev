@@ -18,7 +18,7 @@
 		overflow: hidden;
 		.menu {
 			.mi a.menuitemlabel {
-				padding: 8px 0 8px 14px;
+				padding: 8px 0 8px 8px;
 			}
 
 			span.mil {
@@ -32,7 +32,7 @@
 
 #side-nav {
 	width: 210px;
-	min-height: calc(100vh - 68px); // minus header height
+	min-height: 100%;
 	background: #2a3542;
 }
 .sidebar-open #main-content,
@@ -46,13 +46,16 @@
 }
 
 #side-nav .menu {
-	margin: 0;
+	margin: 15px 0 0;
 	padding: 0;
 	list-style: none;
 }
 
-#side-nav .menu .mi {
-	border-bottom: 1px solid #4f5a69;
+#side-nav .menu .mi{
+	/*line-height: 20px !important;*/
+	margin-bottom: 5px;
+	margin-left:10px;
+	margin-right:10px;
 	overflow: hidden;
 	white-space: nowrap;
 }
@@ -62,19 +65,21 @@
 }
 
 #side-nav .menu .mi a.menuitemlabel{
-	color: #e1e4e6;
+	color: #aeb2b7;
 	text-decoration: none;
 	display: block;
-	padding: 23px 15px 20px;
+	padding: 15px 0 15px 10px;
 	outline: none;
 	transition: all 0.3s ease;
-	font-weight: 400;
 }
 
-#side-nav .menu .mi.mi-active a.menuitemlabel,
+#side-nav .menu .mi a.menuitemlabel.mi-active,
 #side-nav .menu .mi a.menuitemlabel:hover, 
 #side-nav .menu .mi a.menuitemlabel:focus {
-	background: #4f5a69;
+	background: #35404d;
+	color: #fff;
+	display: block;
+	border-radius: 4px;
 }
 
 
@@ -85,53 +90,41 @@
 #side-nav .menu .mi a.menuitemlabel:hover:before,
 #side-nav .menu .mi a.menuitemlabel:focus:before,
 #side-nav .menu .mi-active a.menuitemlabel:before{
-	//color: $menu-item-active;
+	color: $menu-item-active;
 }
 #side-nav .menu .mi > .menuitemlabel:before{
 	font-family: FontAwesome;
-	padding-right: .75rem;
-	min-width: 40px;
+	padding-right: 4px;
+	min-width: 22px;
 	display: inline-block;
-	font-size: 1.5rem;
-	margin-top: -2px;
-	vertical-align: middle;
 }
-
+#side-nav .menu .my-quick-view > .menuitemlabel:before {
+	content: "\f1ea";
+}
+#side-nav .menu .participant-mgt > .menuitemlabel:before {
+	content: "\f19c";
+}
+#side-nav .menu .group-mgt > .menuitemlabel:before {
+	content: "\f0c0";
+}
+#side-nav .menu .task-mgt > .menuitemlabel:before {
+	content: "\f0ae";
+}
 #side-nav .menu .user-mgt > .menuitemlabel:before {
 	content: "\f007";
 }
-#side-nav .menu .company-mgt > .menuitemlabel:before {
+#side-nav .menu .coached-mgt > .menuitemlabel:before {
 	content: "\f0f7";
 }
-#side-nav .menu .location-mgt > .menuitemlabel:before {
-	content: "\f14e";
+#side-nav .menu .activity-template-mgt > .menuitemlabel:before {
+	content: "\f247";
 }
-
-@media (max-width: 767px) {
-	.sidebar-closed,
-	#body-wrapper:not(.sidebar-open){
-		#side-nav {
-			width: 0;
-			overflow: hidden;
-		}
-	}
-	.sidebar-open {
-		#side-nav {
-			width: 55px;
-		}
-	}
+#side-nav .menu .process-mgt > .menuitemlabel:before {
+	content: "\f0ec";
 }
-@media (max-width: 767px) {
-	.sidebar-closed,
-	#body-wrapper:not(.sidebar-open){
-		#side-nav {
-			width: 0;
-			overflow: hidden;
-		}
-	}
-	.sidebar-open {
-		#side-nav {
-			width: 55px;
-		}
-	}
+#side-nav .menu .component-mgt > .menuitemlabel:before {
+	content: "\f1c0";
+}
+#side-nav .menu .resource-mgt > .menuitemlabel:before {
+	content: "\f03e";
 }

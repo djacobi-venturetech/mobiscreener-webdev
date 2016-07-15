@@ -4,41 +4,64 @@
 .actions .btn {
 	margin-right:4px;
 }
-.actions .btn, .procedure-navigation .btn, .recipients .btn {
-	@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
 
-	&.save, &.add, &.finish-button, &.save_exit, &.confirm, &.engagement-completed {
-		@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+.actions, .add-listing {
+
+  .btn {
+	font-family: $font-open-sans;
+	font-weight: 600;
+	text-transform: uppercase;
+
+	&:first-child {
+	  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+	  border-bottom: 3px solid $btn-primary-border;
 	}
 
-	&.delete, &.remove, &.cancel, &.cancel-button, &.reschedule {
-		background: $color-white;
-		color: $color-app-red;
-		border-color: $color-app-red;
-
-		&:hover {
-			background: $color-app-red;
-			border-color: $color-app-red;
-			color: $color-white;
-		}
-
+	&:not(:first-child) {
+	  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+	  border-bottom: 3px solid $btn-secondary-border;
 	}
 
-}
-
-.btn {
-
-	&.engagement-completed {
-		@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-		display: block;
+	&.add {
+	  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-root, $line-height-sm, $btn-border-radius-sm);
+	  height: auto;
+	  &::before {
+		content: '\f067';
+		font-family: FontAwesome;
+		padding-right: 5px;
+		font-weight: 300;
+		font-size: 85%;
+		color: $color-white;
+	  }
 	}
 
-	&.go, &.back-home {
-		@include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+	&:hover {
+	  text-decoration: none;
 	}
+
+  }
 
 }
 
 .action-column .btn {
 	@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-xs, $line-height-sm, $btn-border-radius-sm);
+}
+
+@media (max-width: 600px) {
+  .actions, .add-listing {
+	.btn.add {
+	  color: transparent;
+	  width: 35px;
+	  overflow: hidden;
+
+	  &:hover {
+		color: transparent;
+	  }
+
+	  &::before {
+		color: $color-white !important;
+	  }
+
+	}
+  }
 }
