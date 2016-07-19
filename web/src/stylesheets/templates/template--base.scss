@@ -20,6 +20,27 @@ body {
 
 #main-wrapper main { padding-bottom: 3rem; }
 
+#e-COLUMN-0 {
+	margin: 0 auto;
+	max-width: 70rem;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.enclosing {
+	> .column {
+		float: none;
+		position: relative;
+	}
+	#column1 {
+		flex: 1 1 0;
+
+	}
+	#column2 {
+		flex: 4 1 0;
+	}
+}
+
 ::selection {
 	background: #FF6C60;
 	color: #fff;
@@ -102,10 +123,6 @@ p.instructions {
 
 	.prop.time {
 		.prop-group-title { margin-top: 0; }
-	}
-
-	.prop.timezone {
-		> label { margin-top: 15px; }
 	}
 
 }
