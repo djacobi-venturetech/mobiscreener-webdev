@@ -13,9 +13,18 @@
 @import "../components/prop-ui";
 @import "../components/file-chooser";
 
+html {
+
+}
+
 body {
-	font-family: $font-roboto;
-	font-weight: 300;
+	font-family: $font-calibri;
+	font-weight: 200;
+	background: rgb(144,144,144);
+	background: -moz-linear-gradient(left,  rgba(144,144,144,1) 0%, rgba(244,244,244,1) 15%, rgba(244,244,244,1) 85%, rgba(144,144,144,1) 100%);
+	background: -webkit-linear-gradient(left,  rgba(144,144,144,1) 0%,rgba(244,244,244,1) 15%,rgba(244,244,244,1) 85%,rgba(144,144,144,1) 100%);
+	background: linear-gradient(to right,  rgba(144,144,144,1) 0%,rgba(244,244,244,1) 15%,rgba(244,244,244,1) 85%,rgba(144,144,144,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#909090', endColorstr='#909090',GradientType=1 );
 }
 
 #main-wrapper main { padding-bottom: 3rem; }
@@ -62,6 +71,11 @@ body {
 		font-size: 2rem;
 		color: $color-app-grey;
 	}
+}
+
+.text img {
+	max-width: 100%;
+	height: auto;
 }
 
 section {
@@ -201,4 +215,12 @@ and (orientation:portrait) {
 		padding-left: 2.5rem;
 	}
 
+}
+
+@media (min-width: 1024px) {
+	#e-COLUMN-0 {
+		max-width: none;
+		width: 100%;
+		padding-left: 20%;
+	}
 }
