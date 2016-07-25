@@ -1,18 +1,32 @@
 $color-app-brand: #67B362;
-$color-app-yellow: #F9BB29;
-$color-app-blue: #488fb4;
-$color-app-light-blue: #4AB0D5;
+$color-app-yellow: #eedb83; //Archive yellow
+$color-app-sub-yellow: #fedc0d; //Archive/un-archive, fourth action buttons
+$color-app-blue: #76cbeb; //Candidates blue
+$color-app-sub-blue: #28abe2; //Edit user, first action buttons
+$color-app-green: #86d59a; //Employees green
+$color-app-sub-green: #67d65f; //Hir, fifth action buttons, confirm buttons
+$color-app-pink: #eb76ea; //Invitations pink
+$color-app-orange: #ebbe76; //Options orange
+$color-app-light-blue: #3186b2; //Accent blue - cards left bar, header bg's, links
+$color-app-sub-purple: #be64ec; //Notify/re-invite, third action buttons
 $color-app-cyan: #6CCAC9;
 $color-app-red: #EE695B;
+$color-app-sub-red: #ff6c71; //Exit, fifth action buttons, cancel buttons
 $color-app-black: #343940;
-$color-app-dark-grey: #53565c;
+$color-app-dark-grey: #3b3b3b; //Main dark gray
 $color-app-grey: #515B6B;
-$color-app-light-grey: #9699A6;
+$color-app-light-grey: #8f8f8f;
 $color-app-lighter-grey: #a7a7a7;
 $color-app-lightest-grey: #a9a7aa;
+$color-app-sub-grey: #d0d0d0; //Unused buttons
 $color-app-beige: #dbd5cb;
+$color-app-sub-beige: #fab05f; //Edit notes, second action buttons
+$color-app-good: #65e66b; //Good scores
+$color-app-average: #e9dd73; //Average scores
+$color-app-bad: #e97373; //Bad scores
 
-$app-page-bg: #ebeae6;
+
+$app-page-bg: #ffffff;
 
 $body-bg: $app-page-bg;
 $brand-primary: $color-app-brand;
@@ -53,12 +67,11 @@ $color-charcoal: #333;
 
 $color-cornsilk: cornsilk;
 
-$font-raleway: "raleway", sans-serif;
+$font-calibri: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
 $font-monospace: monospace;
 $font-arial: $font-family-sans-serif;
 $font-open-sans: Open Sans, $font-arial;
 $font-source-sans: "source-sans-pro",sans-serif;
-$font-roboto: "Roboto", $font-family-sans-serif;
 
 $font-default-color: $color-black;
 $font-default-size: 14px;
