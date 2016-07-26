@@ -1,4 +1,4 @@
-$color-app-brand: #67B362;
+$color-app-brand: #28abe2;
 $color-app-yellow: #eedb83; //Archive yellow
 $color-app-sub-yellow: #fedc0d; //Archive/un-archive, fourth action buttons
 $color-app-blue: #76cbeb; //Candidates blue
@@ -45,7 +45,6 @@ $enable-shadows:                 true;
 
 @import "../../../../bower_components/bootstrap/scss/variables";
 
-
 $menu-item-active: $color-app-red;
 $menu-item-inactive: $color-app-light-grey;
 
@@ -79,12 +78,12 @@ $font-default-content-line-height: 1.4;
 
 $html-entity-nbsp: "\a0";
 
-$bp-mobile-landscape: (min-width: 480px);
-$bp-tablets-portrait: (min-width: 768px);
-$bp-tablets-only: (min-width: 768px) (min-width: 1024px);
-$bp-tablets-landscape: (min-width: 1024px);
-$bp-desktop: (min-width: 1280px);
-$bp-desktop-wide: (min-width: 1400px);
+$bp-mobile-landscape: (min-width 480px);
+$bp-tablets-portrait: (min-width 768px);
+$bp-tablets-only: (min-width 768px) (min-width 1024px);
+$bp-tablets-landscape: (min-width 1024px);
+$bp-desktop: (min-width 1280px);
+$bp-desktop-wide: (min-width 1400px);
 
 
 $font-open-sans-bold: Open Sans Bold;

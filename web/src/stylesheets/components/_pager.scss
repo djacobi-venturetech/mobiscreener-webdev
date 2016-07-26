@@ -1,6 +1,7 @@
 @import "../config/base-vars";
 @import "../../../../bower_components/bootstrap/scss/mixins";
 @import "../../../../bower_components/bootstrap/scss/mixins/pagination";
+@import "../mobi-proto/config/base-mixins";
 
 div.pager-top {
 	display: none;
@@ -9,7 +10,6 @@ div.pager-top {
 .pager-bottom {
 	display: inline-block;
 	padding-left: 0;
-	margin-top: $spacer-y;
 	margin-bottom: $spacer-y;
 	@include border-radius();
 }
@@ -58,9 +58,36 @@ div.pager-top {
 .pager .controls{
 	display: inline-block;
 }
+
+$controls-glyph-margin: 5px;
 .pager .next-controls{
+
 	margin-left:4px;
+	.next {
+		@include glyphAddAfter("\f105");
+		&:after {
+			margin-left: $controls-glyph-margin;
+		}
+	}
+	.last {
+		@include glyphAddAfter("\f101");
+		&:after {
+			margin-left: $controls-glyph-margin;
+		}
+	}
 }
 .pager .prev-controls{
 	margin-right:4px;
+	.prev {
+		@include glyphAddBefore("\f104");
+		&:before {
+			margin-right: $controls-glyph-margin;
+		}
+	}
+	.first {
+		@include glyphAddBefore("\f100");
+		&:before {
+			margin-right: $controls-glyph-margin;
+		}
+	}
 }

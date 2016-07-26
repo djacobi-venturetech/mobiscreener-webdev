@@ -1,17 +1,18 @@
-@import "../config/base-import";
-@import "../components/actions";
-@import "../components/messages";
-@import "../components/top-menu";
-@import "../components/side-nav";
-@import "../components/miwt";
-@import "../components/miwt-tables";
-@import "../components/miwt-menu";
-@import "../components/miwt-dialog";
-@import "../components/tabs";
-@import "../components/search-ui";
-@import "../components/pager";
-@import "../components/prop-ui";
-@import "../components/file-chooser";
+@import "../../config/base-import";
+@import "../../components/actions";
+@import "../../components/messages";
+@import "../../components/top-menu";
+@import "../../components/side-nav";
+@import "../../components/miwt";
+@import "../../components/miwt-tables";
+@import "../../components/miwt-menu";
+@import "../../components/miwt-dialog";
+@import "../../components/tabs";
+@import "../../components/search-ui";
+@import "../../components/pager";
+@import "../../components/prop-ui";
+@import "../../components/file-chooser";
+@import "../config/base-mixins";
 
 html {
 
@@ -29,11 +30,24 @@ body {
 
 #main-wrapper main { padding-bottom: 3rem; }
 
+#header {
+	@include breakpoint($bp-tablets-landscape) {
+		width: 25%;
+	}
+}
+
 #e-COLUMN-0 {
 	margin: 0 auto;
 	max-width: 70rem;
 	display: flex;
 	flex-flow: row wrap;
+	padding: 0 2.5% 25px;
+
+	@include breakpoint($bp-tablets-landscape) {
+		max-width: none;
+		width: 100%;
+		padding-left: 27.5%;
+	}
 }
 
 .enclosing {
@@ -141,18 +155,8 @@ p.instructions {
 
 }
 
-#page-footer {
-	padding: 2rem 0;
-	background: #4F5A69;
-	width: 100%;
-	display: block;
-	color: $color-white;
-	text-align: center;
-
-	p {
-		margin: 0;
-	}
-
+#footer {
+	display: none;
 }
 
 
@@ -215,12 +219,4 @@ and (orientation:portrait) {
 		padding-left: 2.5rem;
 	}
 
-}
-
-@media (min-width: 1024px) {
-	#e-COLUMN-0 {
-		max-width: none;
-		width: 100%;
-		padding-left: 20%;
-	}
 }

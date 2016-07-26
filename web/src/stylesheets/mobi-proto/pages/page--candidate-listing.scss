@@ -1,0 +1,311 @@
+@import "../config/base-vars";
+@import "../config/base-mixins";
+
+$color-listing-background-grey: #eaeaea;
+$table-row-height: 128px;
+$table-row-column-left-padding: 9px;
+
+.search-navigation-actions {
+  margin: 10px 0;
+  text-align: right;
+  padding: 0 10px;
+
+  .invite-candidate {
+    background-color: transparent;
+    color: $color-app-light-blue;
+    overflow: hidden;
+    height: 35px;
+    padding: 5px;
+    width: 35px;
+
+    &:before {
+      font-size: 28px;
+      margin-right: 5px;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+      overflow: auto;
+      width: auto;
+      height: auto;
+      border: 2px solid $color-app-light-blue;
+      padding: 5px;
+
+      &:before {
+        font-size: 23px;
+      }
+    }
+  }
+}
+
+.candidate-search {
+  border: none;
+
+  //Nothing in here
+  thead {
+    display: none;
+  }
+
+  &.miwt-table>tbody>tr:hover>td,
+  &.miwt-table>tbody>tr:nth-child(even)>td {
+    background-color: transparent;
+  }
+
+  .type-candidate {
+    padding: 0 0 15px;
+    background-color: transparent;
+  }
+
+  .candidate-row {
+    display: table;
+    width: 100%;
+    background-color: $color-almost-white;
+  }
+
+  .candidate-name-container {
+    background-color: $color-listing-background-grey;
+
+    .name-button {
+      padding: 0;
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      text-align: left;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0;
+
+      &:before {
+        margin-right: 8px;
+        padding: $table-row-column-left-padding;
+        vertical-align: middle;
+        background-color: $color-app-dark-grey;
+        color: $btn-primary-color;
+      }
+    }
+  }
+
+  .candidate-wrapper,
+  .candidate-actions-score-container {
+    display: table-cell;
+    vertical-align: top;
+
+    @include breakpoint($bp-tablets-portrait)
+    {
+      position: relative;
+    }
+  }
+
+  .candidate-wrapper {
+    width: 65%;
+    @include breakpoint($bp-tablets-portrait)
+    {
+      width: 60%;
+    }
+  }
+
+  .candidate-actions-score-container {
+    width: 35%;
+    @include breakpoint($bp-tablets-portrait)
+    {
+      width: 40%;
+    }
+  }
+
+  .candidate-details-container {
+    display: table;
+    height: $table-row-height;
+    @include breakpoint($bp-tablets-portrait) {
+      height: 116px;
+    }
+  }
+
+  .candidate-meta-container,
+  .candidate-info-wrapper {
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .candidate-meta-container {
+    position: relative;
+    max-width: 34px;
+    background-color: $color-app-light-blue;
+    color: $color-almost-white;
+
+    .candidate-invite-date {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  .candidate-status-label {
+    display: block;
+    position: relative;
+    transform: rotate(90deg);
+    top: 12px;
+  }
+
+  .candidate-invite-date {
+    .month-label,
+    .day-label,
+    .year-label {
+      text-align: center;
+    }
+
+    .month-label,
+    .day-label {
+      font-size: 16px;
+      line-height: 16px;
+    }
+
+    .year-label {
+      font-size: 10px;
+      line-height: 11px;
+      &:before,
+      &:after {
+        content: "-";
+        display: inline-block;
+      }
+    }
+  }
+
+  .candidate-info-wrapper {
+    position: relative;
+    width: 100%;
+
+    .candidate-info-container {
+      position: absolute;
+      top: 5px;
+      left: $table-row-column-left-padding;
+      bottom: 5px;
+      right: $table-row-column-left-padding;
+
+      .phone-wrapper,
+      .email-wrapper,
+      .candidate-locations,
+      .candidate-positions {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .candidate-scores {
+    height: $table-row-height;
+    background-color: $color-listing-background-grey;
+
+    @include breakpoint($bp-tablets-portrait) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 25%;
+      height: auto;
+    }
+
+    .score-label,
+    .score-value {
+      display: none;
+    }
+
+    .overall-score {
+      height: 100%;
+
+      .score-value {
+        display: flex;
+        text-align: center;
+        font-size: 22px;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+
+    //TODO Show our special score though
+  }
+
+  .candidate-action-message-container {
+    //TODO MAGIC
+  }
+
+  .candidate-actions {
+    display: table;
+    width: 100%;
+    @include breakpoint($bp-tablets-portrait) {
+      display: block;
+      width: 25%;
+      float: right;
+    }
+
+    .candidate-action {
+      display: table-cell;
+      width: 33.3%;
+      vertical-align: middle;
+      text-align: center;
+      @include breakpoint($bp-tablets-portrait) {
+        display: block;
+        width: 100%;
+      }
+
+      .candidate-action-reinvite {
+        border-bottom: 4px solid $color-app-sub-purple;
+        @include breakpoint($bp-tablets-portrait) {
+          border-left: 4px solid $color-app-sub-purple;
+          border-bottom: none;
+        }
+      }
+      .candidate-action-move-forward {
+        border-bottom: 4px solid $color-app-sub-blue;
+        @include breakpoint($bp-tablets-portrait) {
+          border-left: 4px solid $color-app-sub-blue;
+          border-bottom: none;
+        }
+      }
+      .candidate-action-archive {
+        border-bottom: 4px solid $color-app-yellow;
+        @include breakpoint($bp-tablets-portrait) {
+          border-left: 4px solid $color-app-yellow;
+          border-bottom: none;
+        }
+      }
+    }
+
+    .action-button {
+      border: none;
+      background-color: transparent;
+      white-space: normal;
+      overflow: hidden;
+      height: 30px;
+      padding: 0;
+      width: 30px;
+      border-radius: 0;
+
+      @include breakpoint($bp-tablets-portrait)
+      {
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+      }
+
+      &:before {
+        font-size: 25px;
+        padding-top: 3px;
+
+        @include breakpoint($bp-tablets-portrait) {
+          display: block;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .action-label {
+      display: none;
+    }
+  }
+
+}
