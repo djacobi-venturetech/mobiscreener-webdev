@@ -2,11 +2,10 @@
 @import "../config/base-vars";
 
 .glyph-candidate-action-reinvite {
-  @include glyphAddBefore("\f064");
-}
-
-.glyph-candidate-action-move-forward {
-  @include glyphAddBefore("\f27a");
+  @include glyphAddBefore("\f122");
+  &:before{
+    transform: scale(-1, 1);
+  }
 }
 
 .glyph-candidate-action-move-forward {
@@ -18,7 +17,7 @@
 }
 
 .glyph-view {
-  @include glyphAddBefore("\f06e");
+  @include glyphAddBefore("\f0f6", 18px);
 }
 
 .glyph-add {
