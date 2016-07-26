@@ -1,0 +1,26 @@
+@import "../config/base-mixins";
+@import "../config/base-vars";
+
+.glyph-candidate-action-reinvite {
+  @include glyphAddBefore("\f064");
+}
+
+.glyph-candidate-action-move-forward {
+  @include glyphAddBefore("\f27a");
+}
+
+.glyph-candidate-action-move-forward {
+  @include glyphAddBefore("\f27a");
+}
+
+.glyph-candidate-action-archive {
+  @include glyphAddBefore("\f187");
+}
+
+.glyph-view {
+  @include glyphAddBefore("\f06e");
+}
+
+.glyph-add {
+  @include glyphAddBefore("\f067");
+}

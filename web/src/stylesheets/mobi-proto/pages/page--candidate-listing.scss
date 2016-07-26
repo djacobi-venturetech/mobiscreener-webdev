@@ -1,0 +1,188 @@
+@import "../config/base-vars";
+@import "../config/base-mixins";
+
+$color-listing-background-grey: #eaeaea;
+$table-row-height: 125px;
+$table-row-column-left-padding: 7px;
+
+.search-navigation-actions {
+  margin: 10px 0;
+  text-align: right;
+  padding: 0 10px;
+
+  .invite-candidate {
+    background-color: transparent;
+    color: $color-app-light-blue;
+    overflow: hidden;
+    height: 35px;
+    padding: 5px;
+    width: 35px;
+
+    &:before {
+      font-size: 28px;
+      margin-right: 5px;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+      overflow: auto;
+      width: auto;
+      height: auto;
+      border: 2px solid $color-app-light-blue;
+      padding: 5px;
+
+      &:before {
+        font-size: 23px;
+      }
+    }
+  }
+}
+
+.candidate-search {
+  border: none;
+
+  //Nothing in here
+  thead {
+    display: none;
+  }
+
+  &.miwt-table>tbody>tr:hover>td,
+  &.miwt-table>tbody>tr:nth-child(even)>td {
+    background-color: transparent;
+  }
+
+  .type-candidate {
+    padding: 0 0 15px;
+    background-color: transparent;
+  }
+
+  .candidate-row {
+    display: table;
+    width: 100%;
+    background-color: $color-almost-white;
+  }
+
+  .candidate-name-container {
+    background-color: $color-listing-background-grey;
+
+    .name-button {
+      padding: 0;
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      text-align: left;
+      vertical-align: middle;
+      &:before {
+        margin-right: 8px;
+        padding: $table-row-column-left-padding;
+        vertical-align: middle;
+        background-color: $color-app-dark-grey;
+        color: $btn-primary-color;
+      }
+    }
+  }
+
+  .candidate-wrapper,
+  .candidate-actions-score-container {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .candidate-wrapper {
+    width: 65%;
+  }
+
+  .candidate-actions-score-container {
+    width: 35%;
+  }
+
+  .candidate-details-container {
+    display: table;
+    height: $table-row-height;
+  }
+
+  .candidate-meta-container,
+  .candidate-info-container {
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .candidate-meta-container {
+    max-width: 30px;
+    background-color: $color-app-light-blue;
+  }
+
+  .candidate-info-container {
+    padding-left: $table-row-column-left-padding;
+    padding-top: 5px;
+  }
+
+  .candidate-scores {
+    height: $table-row-height - 1;
+    background-color: $color-listing-background-grey;
+
+    .score-label,
+    .score-value {
+      display: none;
+    }
+
+    .overall-score {
+      height: 100%;
+
+      .score-value {
+        display: flex;
+        text-align: center;
+        font-size: 22px;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+
+    //TODO Show our special score though
+  }
+
+  .candidate-action-message-container {
+    //TODO MAGIC
+  }
+
+  .candidate-actions {
+    display: table;
+    width: 100%;
+
+    .candidate-action {
+      display: table-cell;
+      width: 33.3%;
+      vertical-align: middle;
+      text-align: center;
+
+      .candidate-action-reinvite {
+        border-bottom: 4px solid $color-app-sub-purple;
+      }
+      .candidate-action-move-forward {
+        border-bottom: 4px solid $color-app-sub-blue;
+      }
+      .candidate-action-archive {
+        border-bottom: 4px solid $color-app-yellow;
+      }
+    }
+
+    .action-button {
+      border: none;
+      background-color: transparent;
+      white-space: normal;
+      overflow: hidden;
+      height: 27px;
+      padding: 0;
+      width: 30px;
+      &:before {
+        font-size: 25px;
+      }
+    }
+
+    .action-label {
+      display: none;
+    }
+  }
+
+}
