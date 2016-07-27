@@ -28,6 +28,11 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#909090', endColorstr='#909090',GradientType=1 );
 }
 
+#e-content {
+	background: url('/_resources/dyn/files/1076752ze9bb470d/_fn/bg-rando-dots.png') repeat 0 0;
+	padding: 0.1px;
+}
+
 #main-wrapper main { padding-bottom: 3rem; }
 
 #header {
@@ -37,7 +42,6 @@ body {
 }
 
 #e-COLUMN-0 {
-	background: url('/_resources/dyn/files/1076752ze9bb470d/_fn/bg-rando-dots.png') repeat 0 0;
 	margin: 0 auto;
 	max-width: 70rem;
 	display: flex;

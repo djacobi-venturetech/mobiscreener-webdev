@@ -1,0 +1,54 @@
+@import "../../config/base-import";
+@import "../../components/top-menu";
+@import "../config/base-mixins";
+
+body {
+  font-family: $font-calibri;
+  font-weight: 200;
+  background: rgb(144,144,144);
+  background: -moz-linear-gradient(left,  rgba(144,144,144,1) 0%, rgba(244,244,244,1) 15%, rgba(244,244,244,1) 85%, rgba(144,144,144,1) 100%);
+  background: -webkit-linear-gradient(left,  rgba(144,144,144,1) 0%,rgba(244,244,244,1) 15%,rgba(244,244,244,1) 85%,rgba(144,144,144,1) 100%);
+  background: linear-gradient(to right,  rgba(144,144,144,1) 0%,rgba(244,244,244,1) 15%,rgba(244,244,244,1) 85%,rgba(144,144,144,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#909090', endColorstr='#909090',GradientType=1 );
+}
+
+#e-content {
+  background: url('/_resources/dyn/files/1076752ze9bb470d/_fn/bg-rando-dots.png') repeat 0 0;
+  padding: 0.1px;
+}
+
+#header {
+  position: relative;
+  width: auto;
+  height: auto;
+  background-image: -webkit-linear-gradient(top, #2f2f2f 0%, #0c0c0c 100%);
+  background-image: linear-gradient(to bottom, #2f2f2f 0%, #0c0c0c 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF2F2F2F', endColorstr='#FF0C0C0C', GradientType=0);
+  border-bottom: none;
+
+  .logo-con {
+    margin: 0 auto;
+    background: #fff;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    max-width: 10rem;
+    max-height: 10rem;
+    border-radius: 100%;
+    overflow: hidden;
+    padding: .5rem;
+    border: 5px solid #000;
+
+    img {
+      padding: 1rem;
+    }
+  }
+}
+
+#column1 {
+  float: none;
+}
