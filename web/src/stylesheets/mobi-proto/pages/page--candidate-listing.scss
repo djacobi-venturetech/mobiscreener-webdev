@@ -2,7 +2,7 @@
 @import "../config/base-mixins";
 
 $color-listing-background-grey: #eaeaea;
-$table-row-height: 128px;
+$table-row-height: 126px;
 $table-row-column-left-padding: 9px;
 
 .search-navigation-actions {
@@ -116,7 +116,7 @@ $table-row-column-left-padding: 9px;
     display: table;
     height: $table-row-height;
     @include breakpoint($bp-tablets-portrait) {
-      height: 116px;
+      height: 114px;
     }
   }
 
@@ -135,7 +135,7 @@ $table-row-column-left-padding: 9px;
 
     .candidate-invite-date {
       position: absolute;
-      bottom: 0;
+      bottom: 5px;
       right: 0;
       left: 0;
     }
@@ -146,6 +146,7 @@ $table-row-column-left-padding: 9px;
     position: relative;
     transform: rotate(90deg);
     top: 12px;
+    font-weight: bold;
   }
 
   .candidate-invite-date {
@@ -157,13 +158,22 @@ $table-row-column-left-padding: 9px;
 
     .month-label,
     .day-label {
-      font-size: 16px;
-      line-height: 16px;
+      line-height: 15px;
+      font-weight: bold;
+    }
+
+    .month-label {
+      font-size: 14px;
+    }
+
+    .day-label {
+      font-size: 19px;
     }
 
     .year-label {
       font-size: 10px;
       line-height: 11px;
+      font-weight: bold;
       &:before,
       &:after {
         content: "-";
@@ -196,7 +206,7 @@ $table-row-column-left-padding: 9px;
   }
 
   .candidate-scores {
-    height: $table-row-height;
+    height: $table-row-height - 1;
     background-color: $color-listing-background-grey;
 
     @include breakpoint($bp-tablets-portrait) {
@@ -252,21 +262,21 @@ $table-row-column-left-padding: 9px;
         width: 100%;
       }
 
-      .candidate-action-reinvite {
+      .candidate-action-reinvite .action-button {
         border-bottom: 4px solid $color-app-sub-purple;
         @include breakpoint($bp-tablets-portrait) {
           border-left: 4px solid $color-app-sub-purple;
           border-bottom: none;
         }
       }
-      .candidate-action-move-forward {
+      .candidate-action-move-forward .action-button {
         border-bottom: 4px solid $color-app-sub-blue;
         @include breakpoint($bp-tablets-portrait) {
           border-left: 4px solid $color-app-sub-blue;
           border-bottom: none;
         }
       }
-      .candidate-action-archive {
+      .candidate-action-archive .action-button {
         border-bottom: 4px solid $color-app-yellow;
         @include breakpoint($bp-tablets-portrait) {
           border-left: 4px solid $color-app-yellow;
@@ -280,26 +290,29 @@ $table-row-column-left-padding: 9px;
       background-color: transparent;
       white-space: normal;
       overflow: hidden;
-      height: 30px;
+      height: 37px;
       padding: 0;
-      width: 30px;
+      width: 100%;
       border-radius: 0;
 
       @include breakpoint($bp-tablets-portrait)
       {
-        width: 100%;
         height: 50px;
         font-size: 13px;
       }
 
       &:before {
+        display: block;
         font-size: 25px;
         padding-top: 3px;
 
         @include breakpoint($bp-tablets-portrait) {
-          display: block;
           font-size: 20px;
         }
+      }
+
+      &:disabled {
+        border-color: $color-app-lighter-grey;
       }
     }
 

@@ -1,0 +1,90 @@
+@import "../config/base-vars";
+@import "../config/base-mixins";
+
+$prop-width: 47%;
+$prop-margin-left: 5%;
+$prop-spacer-y: 15px;
+
+#column1 {
+  max-width: 430px;
+  margin: 15px auto 45px;
+
+  @include breakpoint($bp-tablets-landscape) {
+    margin-top: 40px;
+  }
+}
+
+.candidate-invite-container {
+  margin-top: 25px;
+
+  .candidate-name,
+  .candidate-assessment-link,
+  .candidate-phone,
+  .candidate-email {
+    margin-bottom: $prop-spacer-y;
+  }
+
+  .prop label {
+    display: none;
+    margin-bottom: 0;
+    @include breakpoint($bp-tablets-portrait) {
+      display: block;
+    }
+  }
+
+  .prop input {
+    width: 100%;
+  }
+
+  .prop.last-name {
+    margin-top: $prop-spacer-y;
+    @include breakpoint($bp-mobile-landscape) {
+      margin-top: 0;
+    }
+  }
+
+  .select2-container {
+    display: block;
+    width: 100% !important;
+  }
+
+  @include breakpoint($bp-mobile-landscape) {
+    .candidate-name .prop {
+      display: inline-block;
+      width: $prop-width;
+
+      & + .prop {
+        margin-left: $prop-margin-left;
+      }
+    }
+
+    .candidate-phone,
+    .candidate-email {
+      display: inline-block;
+      width: $prop-width;
+    }
+
+    .candidate-email {
+      margin-left: $prop-margin-left;
+    }
+  }
+
+  .candidate-invite-actions {
+    .btn {
+      display: block;
+      width: 100%;
+    }
+
+    .close {
+      float: none;
+      border: 1px solid transparent;
+      padding: $btn-padding-y $btn-padding-x;
+      opacity: 1;
+      margin-top: $prop-spacer-y;
+      @include breakpoint($bp-tablets-portrait) {
+        float: right;
+        margin-top: 0;
+      }
+    }
+  }
+}
