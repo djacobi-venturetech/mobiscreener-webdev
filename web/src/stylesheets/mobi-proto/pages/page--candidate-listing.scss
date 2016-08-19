@@ -5,36 +5,189 @@ $color-listing-background-grey: #eaeaea;
 $table-row-height: 126px;
 $table-row-column-left-padding: 9px;
 
-.search-navigation-actions {
+.top-actions-bar {
   margin: 10px 0;
+  position: relative;
+  z-index: 99;
   text-align: right;
-  padding: 0 10px;
 
-  .invite-candidate {
+  > * {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .search-constraints > div {
+    display: inline-block;
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    padding: 0;
+  }
+
+  .btn {
     background-color: transparent;
-    color: $color-app-light-blue;
+    color: transparent;
     overflow: hidden;
     height: 35px;
     padding: 5px;
     width: 35px;
+    margin: 0 10px;
+    font-family: $font-open-sans;
 
-    &:before {
-      font-size: 28px;
+    &::before {
+      font-size: 28px !important;
       margin-right: 5px;
+      color: #414141;
+      margin-top: -3px;
+    }
+
+    &:active {
+      box-shadow: none;
     }
 
     @include breakpoint($bp-tablets-portrait) {
       overflow: auto;
       width: auto;
       height: auto;
-      border: 2px solid $color-app-light-blue;
       padding: 5px;
+      color: #414141;
 
       &:before {
-        font-size: 23px;
+        font-size: 23px !important;
       }
     }
+
+    &.clear-filters-button {
+      color: lighten($color-app-lightest-grey, 5%);
+
+      &::before {
+        color: lighten($color-app-lightest-grey, 5%);
+      }
+
+    }
+
   }
+
+  .miwt-collapsable-content {
+    background: #f7f7f7;
+    border: 3px solid darken($color-cloud-grey, 5%);
+    padding: .5rem;
+    left: 0;
+    width: 100%;
+    margin-top: .5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+    input[type="text"] {
+      width: 100%;
+      border: 2px solid $color-app-light-grey;
+      margin-bottom: .5rem;
+    }
+
+    .btn {
+      overflow: auto;
+      width: auto;
+      height: auto;
+      padding: 5px 15px;
+      margin: 0;
+      color: #414141;
+
+      &.filter-btn {
+        background-color: $color-app-green;
+        margin-right: 10px;
+      }
+
+      &.reset {
+        background-color: $color-app-red;
+      }
+
+    }
+
+    span.display-label, span.label-after {
+      display: block;
+    }
+
+    span.display-label {
+      text-align: center;
+      color: darken($color-app-blue, 5%);
+      margin-bottom: 5px;
+
+      &::before {
+        content: '--';
+        margin-right: 3px;
+      }
+
+      &::after {
+        content: '--';
+        margin-left: 3px;
+      }
+
+    }
+
+    span.label-after {
+      text-align: left;
+      border-top: 1px solid $color-cloud-grey;
+      padding-top: 5px;
+      label {
+        margin-left: 3px;
+        margin-bottom: 5px;
+      }
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+      max-width: 16rem;
+      left: auto;
+    }
+
+  }
+
+}
+
+.search-navigation-actions {
+  float: left;
+
+  @include breakpoint($bp-tablets-landscape) {
+    padding: 0;
+  }
+
+  .invite-candidate {
+    color: $color-app-light-blue;
+    margin: 0;
+
+    &::before {
+      color: $color-app-light-blue;
+    }
+
+    @include breakpoint($bp-tablets-portrait) {
+      border: 2px solid $color-app-light-blue;
+    }
+  }
+}
+
+.search-sort-order {
+  .miwt-collapsable-content {
+    .btn {
+      background-color: $color-app-green;
+    }
+    span.label-after:nth-of-type(1) {
+      border-top: none;
+    }
+  }
+}
+
+.search-sort-order, .candidate-constraint-master-filter {
+
+  .miwt-collapsable-content {
+
+    @include breakpoint($bp-tablets-portrait) {
+      max-width: 11.25rem;
+    }
+
+    .btn {
+      margin-top: 8px;
+    }
+
+  }
+
 }
 
 .candidate-search {
@@ -98,6 +251,7 @@ $table-row-column-left-padding: 9px;
 
   .candidate-wrapper {
     width: 65%;
+    text-align: left;
     @include breakpoint($bp-tablets-portrait)
     {
       width: 60%;
@@ -115,6 +269,7 @@ $table-row-column-left-padding: 9px;
   .candidate-details-container {
     display: table;
     height: $table-row-height;
+    position: relative;
     @include breakpoint($bp-tablets-portrait) {
       height: 114px;
     }
@@ -135,9 +290,10 @@ $table-row-column-left-padding: 9px;
 
     .candidate-invite-date {
       position: absolute;
-      bottom: 5px;
+      bottom: 5px !important;
       right: 0;
       left: 0;
+      display: block;
     }
   }
 
