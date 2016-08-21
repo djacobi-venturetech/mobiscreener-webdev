@@ -1,10 +1,321 @@
 @import "../config/base-vars";
 @import "../config/base-mixins";
 
+$color-btn-active-sub-blue: #abe5f9;
+$color-btn-active-blue: #4fbcdd;
+
+#header {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+  box-shadow: none;
+  //max-width: 95%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 1rem;
+
+  @include breakpoint($bp-tablets-portrait) {
+    max-width: 70rem;
+  }
+
+  .logo-con {
+    border: none;
+    border-radius: 0;
+    max-height: 8.25rem;
+    max-width: 8.25rem;
+
+    > div { //make IE happy
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+}
+
 #e-COLUMN-0 {
-  margin-top: 25px;
+  padding-bottom: 0;
+  min-height: calc(100vh - 148px);
 
   .coming-soon {
     text-align: center;
   }
+
+  #column1 {
+    padding: 0 1.5rem 1.5rem;
+    width: 100%;
+    //max-width: 95%;
+    margin: 0 auto;
+    min-height: inherit;
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+
+    @include breakpoint($bp-tablets-portrait) {
+      max-width: 70rem;
+    }
+
+  }
+
+}
+
+.form_entry {
+  width: 100%;
+  margin: 0 auto;
+
+  .message-container .message {
+    text-align: center;
+    font-size: .9rem;
+    padding: .25rem;
+    margin-bottom: .25rem;
+    background: $alert-warning-bg;
+    border: 1px solid $alert-warning-border;
+    color: $alert-warning-text;
+
+    &.error {
+      background: $alert-danger-bg;
+      border: 1px solid $alert-danger-border;
+      color: $alert-danger-text;
+    }
+  }
+
+  //MAY UNHIDE LATER?
+  .wizard_category_navigator, .wizard_procedure_step_header {
+    display: none;
+  }
+
+  .wizard_procedure, .form_field > table, .phone_number_nanp,
+  .procedure-navigation-bottom {
+    width: 100%;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    max-width: 25rem;
+    padding: 0 1.25rem;
+  }
+
+  label, span.label {
+    color: $color-app-black;
+    font-size: .9rem;
+    font-weight: normal;
+    border-radius: none;
+    padding: 0;
+    margin-bottom: 3px;
+    display: block;
+    text-align: left;
+  }
+
+  span.label-after {
+    margin-right: 1rem;
+
+    label {
+      display: inline-block;
+      font-size: .9rem;
+      margin-left: 5px;
+    }
+  }
+
+  input[type="text"], select {
+    margin-bottom: 1rem;
+    width: 100%;
+    background: lighten($color-app-lightest-grey, 25%);
+    border: 1px solid lighten($color-app-lightest-grey, 5%);
+    padding: 5px 8px;
+  }
+
+  .name_field > span.extra_value_name {
+    display: none;
+  }
+
+  .phone_number_nanp {
+
+    input {
+      margin-bottom: 0;
+    }
+
+    span.nanp_example {
+      color: $color-app-lightest-grey;
+      font-size: 75%;
+      font-style: italic;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+  }
+
+  .previous-button-con {
+    //display: none;
+  }
+
+  .next-button-con {
+    span.next-button {
+      display: block;
+      text-align: center;
+    }
+    .btn.next-button {
+      border-radius: 0;
+      background-color: $color-app-green;
+      width: auto;
+      margin: 0 auto;
+      padding: .5rem 1.5rem;
+
+      &[disabled="disabled"] {
+      display: none;
+    }
+
+    }
+  }
+
+  span.submit_button {
+    display: block;
+    text-align: center;
+    .btn.submit_button {
+      border-radius: 0;
+      background-color: $color-app-green;
+      width: auto;
+      margin: 0 auto;
+      padding: .5rem 1.5rem;
+    }
+  }
+
+  .form_field {
+    > span.label {
+      width: 100%;
+      white-space: normal;
+      line-height: 1.25;
+      margin-bottom: 5px;
+      padding: 0 1rem;
+      font-size: .9rem;
+    }
+
+    &.phone_field, &.email_field {
+      > span.label {
+        padding: 0;
+      }
+    }
+
+  }
+
+}
+
+.assessment-step {
+
+  .form_field {
+    text-align: center;
+
+    span.label {
+      text-align: center;
+    }
+
+  }
+
+  .button_description_container {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0;
+    width: 20%;
+    padding: 0 2px;
+  }
+
+  .demographics .button_description_container {
+    width: 50%;
+  }
+
+  .employment {
+    span.label-after {
+      width: 50%;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 0;
+      padding: 0 2px;
+    }
+  }
+
+  input[type="radio"] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  span.label-after {
+    margin-right: 0;
+
+    //noinspection LongLine
+    label.tbl {
+      background: $color-app-sub-blue;
+      background: -moz-linear-gradient(top,  $color-app-blue 0%, $color-app-sub-blue 100%);
+      background: -webkit-linear-gradient(top,  $color-app-blue 0%, $color-app-sub-blue 100%);
+      background: linear-gradient(to bottom,  $color-app-blue 0%, $color-app-sub-blue 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-app-blue', endColorstr='$color-app-sub-blue',GradientType=1 );
+      margin: 0;
+      padding: .75rem;
+      width: 100%;
+      text-align: center;
+      font-size: .8rem;
+      line-height: 1.15;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column nowrap;
+      justify-content: center;
+      align-items: center;
+      -ms-flex-pack: center;
+      min-height: 3.7rem;
+      height: 3.7rem;
+      border-radius: $border-radius-sm;
+
+      span {
+        flex: 1;
+        align-self: center;
+      }
+
+    }
+
+    //noinspection LongLine
+    input[type="radio"]:checked {
+      + label.tbl {
+        background: $color-btn-active-blue;
+        background: -moz-linear-gradient(top,  $color-btn-active-blue 0%, $color-btn-active-sub-blue 100%);
+        background: -webkit-linear-gradient(top,  $color-btn-active-blue 0%, $color-btn-active-sub-blue 100%);
+        background: linear-gradient(to bottom,  $color-btn-active-blue 0%, $color-btn-active-sub-blue 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-btn-active-blue', endColorstr='$color-btn-active-sub-blue',GradientType=1 );
+      }
+    }
+
+  }
+
+  .question {
+    margin-bottom: .85rem;
+  }
+
+}
+
+.thank-you {
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  strong {
+    font-size: 2.5rem;
+    display: block;
+    font-style: italic;
+    color: $color-app-blue;
+  }
+
+}
+
+#footer {
+  display: none;
 }

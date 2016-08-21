@@ -23,3 +23,25 @@
 .glyph-add {
   @include glyphAddBefore("\f067");
 }
+
+.candidate-constraint-keyword {
+  .btn.trigger {
+    @include glyphAddBefore("\f002");
+  }
+}
+
+.candidate-constraint-master-filter {
+  .btn.trigger {
+    @include glyphAddBefore("\f0ca");
+  }
+}
+
+.candidate-search-sort-order {
+  .btn.trigger {
+    @include glyphAddBefore("\f0dc");
+  }
+}
+
+.clear-filters-button {
+  @include glyphAddBefore("\f0e2");
+}

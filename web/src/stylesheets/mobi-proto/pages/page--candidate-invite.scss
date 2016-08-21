@@ -34,6 +34,7 @@ $prop-spacer-y: 15px;
 
   .prop input {
     width: 100%;
+    border: 1px solid $color-app-lighter-grey;
   }
 
   .prop.last-name {
@@ -82,8 +83,8 @@ $prop-spacer-y: 15px;
       opacity: 1;
       margin-top: $prop-spacer-y;
       @include breakpoint($bp-tablets-portrait) {
-        float: right;
-        margin-top: 0;
+        //float: right;
+        //margin-top: 0;
       }
     }
   }
