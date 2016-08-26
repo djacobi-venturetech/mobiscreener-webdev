@@ -1,0 +1,189 @@
+@import "../config/base-vars";
+@import "../config/base-mixins";
+@import "../../components/prop-ui";
+@import "../components/notify-dialog";
+@import "../components/select-tag-dialog";
+
+$button-glyph-hieght: 36px;
+
+@mixin addActionButtonColor($color: '') {
+  border: none;
+  border-bottom: 4px solid $color;
+
+  &:hover {
+    background-color: $color;
+  }
+}
+
+//ugh
+#e-COLUMN-0 {
+  padding: 0;
+  margin-bottom: 46px;
+
+  #column1 {
+    width: 100%
+  }
+
+  @include breakpoint($bp-tablets-landscape) {
+    padding-left: 25%;
+    margin-bottom: 0;
+  }
+
+  .prop-viewer {
+    padding: 0;
+  }
+}
+
+.prop-header {
+  background-color: rgba(255, 255, 255, 0.63);
+}
+
+.prop-viewer .prop-header-actions .persistence-actions {
+  margin: 0;
+  text-align: center;
+
+  .btn {
+    overflow: hidden;
+    color: $color-app-btn-font-black;
+    background-color: transparent;
+    border-radius: initial;
+    margin: 0;
+    width: 17%;
+    height: $button-glyph-hieght + 10px;
+
+    &:hover {
+      color: $color-app-btn-font-black;
+    }
+
+    &:before {
+      display: block;
+      font-size: 28px;
+      height: $button-glyph-hieght;
+    }
+  }
+
+  .btn.back {
+    @include addActionButtonColor($color-app-dark-grey);
+    width: 15%;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  .btn.re-invite {
+    @include addActionButtonColor($color-app-sub-purple);
+  }
+
+  .btn.edit {
+    @include addActionButtonColor($color-app-lightest-grey);
+  }
+
+  .btn.move-forward {
+    @include addActionButtonColor($color-app-sub-blue);
+  }
+
+  .btn.archive {
+    @include addActionButtonColor($color-app-yellow);
+  }
+
+  .btn.hire {
+    @include addActionButtonColor($color-app-green);
+  }
+}
+
+$prop-padding: 15px;
+
+#e-COLUMN-0 {
+  .prop-body {
+    margin: 15px 2% 0;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+    background-color: rgba(255, 255, 255, 0.6);
+
+    .prop {
+      padding: 0 $prop-padding;
+    }
+
+    .prop-wrapper {
+      padding: 0 $prop-padding;
+    }
+
+    .prop.name {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: rgba(216, 216, 216, 0.45);
+    }
+
+    .prop.email .prop.email{
+      padding: 0;
+
+      .val {
+        padding: 0;
+      }
+    }
+
+    .prop.tag {
+      display: inline-block;
+      padding: 0;
+      line-height: 30px;
+      @include glyphAddBefore($icon-tag);
+      @include addTagStyle();
+
+      label {
+        display: none;
+      }
+    }
+
+    .prop.scores {
+      .prop.score {
+        padding: 0;
+      }
+    }
+
+    .prop.history,
+    .prop.notes {
+      padding: 0;
+
+      label {
+        display: block;
+        padding: 5px $prop-padding;
+        background-color: $color-app-light-blue;
+        color: $color-white;
+        text-align: center;
+
+        &:after {
+          display: none;
+        }
+      }
+
+      .miwt-table-con,
+      .notes-val {
+        padding: $prop-padding;
+        display: block;
+        color: #373a3c;
+        text-align: left;
+      }
+    }
+
+    .prop.history {
+      padding-bottom: 15px;
+
+      .miwt-table-con {
+        margin: $prop-padding $prop-padding 0;
+        padding: 0;
+        overflow: auto;
+
+        thead > tr > th {
+          background-color: #e0e0e0;
+        }
+      }
+    }
+
+  }
+}
+
+.prop-footer-actions {
+  display: none;
+}

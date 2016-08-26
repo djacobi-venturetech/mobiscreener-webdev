@@ -71,7 +71,6 @@
 
 	header .actions, footer .actions {
 		margin: 10px 0;
-		text-align: right;
 	}
 
 	.actions.bottom {
@@ -102,15 +101,9 @@
 
 }
 
-.prop-viewer,
-.prop-editor {
-	padding: .5rem;
-}
-
 .prop-viewer {
-	.actions.top {
-		display: none;
-	}
+	margin: 0 auto;
+
 	.prop {
 		display: block;
 

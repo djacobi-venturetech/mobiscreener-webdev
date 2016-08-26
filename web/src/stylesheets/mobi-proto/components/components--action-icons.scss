@@ -16,6 +16,18 @@
   @include glyphAddBefore("\f187");
 }
 
+.glyph-candidate-action-un-archive {
+  @include glyphAddBefore("\f07c");
+}
+
+.glyph-candidate-action-hire {
+  @include glyphAddBefore("\f234");
+}
+
+.glyph-candidate-action-exit {
+  @include glyphAddBefore("\f235");
+}
+
 .glyph-view {
   @include glyphAddBefore("\f0f6", 18px);
 }
@@ -42,6 +54,28 @@
   }
 }
 
-.clear-filters-button {
+.reset-search-button {
   @include glyphAddBefore("\f0e2");
+}
+
+.tag-button {
+  @include glyphAddBefore($icon-tag);
+}
+
+.confirmation-action-container {
+  .btn.ok {
+    @include glyphAddBefore("\f00c");
+  }
+
+  .btn.undo {
+    @include glyphAddBefore("\f00d");
+  }
+}
+
+.btn.back {
+  @include glyphAddBefore("\f112");
+}
+
+.btn.edit {
+  @include glyphAddBefore("\f040");
 }

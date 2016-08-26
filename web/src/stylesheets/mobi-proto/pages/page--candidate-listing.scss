@@ -1,9 +1,21 @@
 @import "../config/base-vars";
 @import "../config/base-mixins";
+@import "../components/notify-dialog";
+@import "../components/select-tag-dialog";
 
 $color-listing-background-grey: #eaeaea;
 $table-row-height: 126px;
 $table-row-column-left-padding: 9px;
+$action-button-height: 37px;
+$score-right-offset: 40%;
+
+.pager {
+  margin-top: 0;
+}
+
+.pageable {
+  margin-bottom: 10px;
+}
 
 .top-actions-bar {
   margin: 10px 0;
@@ -37,7 +49,7 @@ $table-row-column-left-padding: 9px;
     &::before {
       font-size: 28px !important;
       margin-right: 5px;
-      color: #414141;
+      color: $color-app-btn-font-black;
       margin-top: -3px;
     }
 
@@ -50,7 +62,7 @@ $table-row-column-left-padding: 9px;
       width: auto;
       height: auto;
       padding: 5px;
-      color: #414141;
+      color: $color-app-btn-font-black;
 
       &:before {
         font-size: 23px !important;
@@ -89,7 +101,7 @@ $table-row-column-left-padding: 9px;
       height: auto;
       padding: 5px 15px;
       margin: 0;
-      color: #414141;
+      color: $color-app-btn-font-black;
 
       &.filter-btn {
         background-color: $color-app-green;
@@ -209,17 +221,56 @@ $table-row-column-left-padding: 9px;
   }
 
   .candidate-row {
+    position: relative;
     display: table;
     width: 100%;
     background-color: $color-almost-white;
+
+    & + .candidate-row {
+      margin-top: 10px;
+    }
+  }
+
+  .candidate-confirmed-message-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: #131313;
+    color: $color-white;
+
+    .candidate-confirmed-message {
+      display: block;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   .candidate-name-container {
+    display: table;
+    width: 100%;
     background-color: $color-listing-background-grey;
+
+    .name {
+      display: table-cell;
+      width: 100%;
+      overflow: hidden;
+      max-width: 0;
+
+      @include breakpoint($bp-mobile-landscape) {
+        width: 70%;
+      }
+    }
 
     .name-button {
       padding: 0;
       width: 100%;
+      height: 37px;
       border: none;
       background-color: transparent;
       text-align: left;
@@ -227,6 +278,9 @@ $table-row-column-left-padding: 9px;
       font-weight: bold;
       font-size: 20px;
       border-radius: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       &:before {
         margin-right: 8px;
@@ -235,6 +289,22 @@ $table-row-column-left-padding: 9px;
         background-color: $color-app-dark-grey;
         color: $btn-primary-color;
       }
+    }
+
+    .tag {
+      display: none;
+      width: 30%;
+      text-align: right;
+      padding: 3px;
+      max-width: 0;
+
+      @include breakpoint($bp-mobile-landscape) {
+        display: table-cell;
+      }
+    }
+
+    .tag-button {
+      @include addTagStyle();
     }
   }
 
@@ -252,14 +322,17 @@ $table-row-column-left-padding: 9px;
   .candidate-wrapper {
     width: 65%;
     text-align: left;
+
     @include breakpoint($bp-tablets-portrait)
     {
-      width: 60%;
+      width: 70%;
     }
   }
 
   .candidate-actions-score-container {
+    position: relative;
     width: 35%;
+
     @include breakpoint($bp-tablets-portrait)
     {
       width: 40%;
@@ -270,6 +343,7 @@ $table-row-column-left-padding: 9px;
     display: table;
     height: $table-row-height;
     position: relative;
+
     @include breakpoint($bp-tablets-portrait) {
       height: 114px;
     }
@@ -370,33 +444,155 @@ $table-row-column-left-padding: 9px;
       top: 0;
       left: 0;
       bottom: 0;
-      right: 25%;
+      right: $score-right-offset;
       height: auto;
     }
 
-    .score-label,
-    .score-value {
-      display: none;
+    .score-value:after {
+      content: "%";
+      font-size: 20px;
+      margin-left: 2px;
     }
 
     .overall-score {
       height: 100%;
+      padding: 10px;
+      text-align: center;
+
+      @include breakpoint($bp-tablets-portrait) {
+        height: 50%;
+        margin-top: 5px;
+      }
 
       .score-value {
-        display: flex;
-        text-align: center;
-        font-size: 22px;
-        justify-content: center;
-        flex-direction: column;
-        height: 100%;
+        margin-top: 15px;
+        font-size: 34px;
+        line-height: 28px;
+
+        @include breakpoint($bp-tablets-portrait) {
+          margin-top: 0;
+          font-size: 28px;
+          line-height: 20px;
+        }
       }
     }
 
-    //TODO Show our special score though
+    .sub-scores-container {
+      display: none;
+
+      @include breakpoint($bp-tablets-portrait) {
+        display: table;
+        width: 100%;
+        margin: 13px 0;
+      }
+
+      .sub-score-container {
+        display: table-cell;
+        width: 50%;
+
+        & + .sub-score-container {
+          border-left: 1px solid rgba(191, 191, 191, 0.48);
+        }
+
+        .score-value:after {
+          font-size: 11px;
+        }
+
+        .score-label {
+          font-size: 10px;
+        }
+      }
+    }
+
+    $score-bar-height: 15px;
+
+    .score-bar-container {
+      position: relative;
+      height: $score-bar-height;
+      margin: 5px 10px;
+      background-color: white;
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      border-radius: 10px;
+
+      .score-bar-value {
+        height: $score-bar-height;
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        border-radius: 10px;
+      }
+    }
   }
 
-  .candidate-action-message-container {
-    //TODO MAGIC
+  .candidate-action-message-container .confirmation-action-container {
+    position: absolute;
+    top: $action-button-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: #131313;
+    color: $color-white;
+
+    @include breakpoint($bp-tablets-portrait) {
+      top: 0;
+      right: $score-right-offset;
+    }
+
+    .confirmation-action-message {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .confirmation-actions {
+      margin-top: 5px;
+      padding: 0 10px 10px;
+      text-align: center;
+
+      @include breakpoint($bp-tablets-portrait) {
+        margin-top: 55px;
+      }
+
+      .btn {
+        color: $color-app-btn-font-black;
+        white-space: normal;
+        overflow: hidden;
+        height: 30px;
+        width: 100%;
+        border-radius: 0;
+
+        @include breakpoint($bp-tablets-portrait) {
+          height: 40px;
+          width: auto;
+        }
+
+        + .btn {
+          margin-top: 10px;
+
+          @include breakpoint($bp-tablets-portrait) {
+            margin-top: 0;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      .btn:before {
+        display: block;
+        margin-right: 5px;
+
+        @include breakpoint($bp-tablets-portrait) {
+          display: inline-block;
+        }
+      }
+
+      .btn.ok {
+        background-color: $color-app-sub-green;
+      }
+
+      .btn.undo {
+        background-color: $color-app-sub-red;
+      }
+    }
   }
 
   .candidate-actions {
@@ -404,7 +600,7 @@ $table-row-column-left-padding: 9px;
     width: 100%;
     @include breakpoint($bp-tablets-portrait) {
       display: block;
-      width: 25%;
+      width: 40%;
       float: right;
     }
 
@@ -419,25 +615,26 @@ $table-row-column-left-padding: 9px;
       }
 
       .candidate-action-reinvite .action-button {
-        border-bottom: 4px solid $color-app-sub-purple;
-        @include breakpoint($bp-tablets-portrait) {
-          border-left: 4px solid $color-app-sub-purple;
-          border-bottom: none;
-        }
+        @include addActionButtonBorder($color-app-sub-purple);
       }
+
       .candidate-action-move-forward .action-button {
-        border-bottom: 4px solid $color-app-sub-blue;
-        @include breakpoint($bp-tablets-portrait) {
-          border-left: 4px solid $color-app-sub-blue;
-          border-bottom: none;
+        @include addActionButtonBorder($color-app-sub-blue);
+      }
+
+      .candidate-action-archive,
+      .candidate-action-un-archive {
+        .action-button {
+          @include addActionButtonBorder($color-app-yellow);
         }
       }
-      .candidate-action-archive .action-button {
-        border-bottom: 4px solid $color-app-yellow;
-        @include breakpoint($bp-tablets-portrait) {
-          border-left: 4px solid $color-app-yellow;
-          border-bottom: none;
-        }
+
+      .candidate-action-hire .action-button {
+        @include addActionButtonBorder($color-app-green);
+      }
+
+      .candidate-action-exit .action-button {
+        @include addActionButtonBorder($color-app-sub-red);
       }
     }
 
@@ -446,7 +643,7 @@ $table-row-column-left-padding: 9px;
       background-color: transparent;
       white-space: normal;
       overflow: hidden;
-      height: 37px;
+      height: $action-button-height;
       padding: 0;
       width: 100%;
       border-radius: 0;
