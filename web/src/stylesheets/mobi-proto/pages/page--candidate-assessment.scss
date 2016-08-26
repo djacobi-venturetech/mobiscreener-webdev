@@ -188,7 +188,7 @@ $color-btn-active-blue: #4fbcdd;
       white-space: normal;
       line-height: 1.25;
       margin-bottom: 5px;
-      padding: 0 1rem;
+      //padding: 0 1rem;
       font-size: .9rem;
     }
 
@@ -207,9 +207,9 @@ $color-btn-active-blue: #4fbcdd;
   .form_field {
     text-align: center;
 
-    span.label {
+    /*span.label {
       text-align: center;
-    }
+    }*/
 
   }
 
@@ -283,10 +283,11 @@ $color-btn-active-blue: #4fbcdd;
     input[type="radio"]:checked {
       + label.tbl {
         background: $color-btn-active-blue;
-        background: -moz-linear-gradient(top,  $color-btn-active-blue 0%, $color-btn-active-sub-blue 100%);
-        background: -webkit-linear-gradient(top,  $color-btn-active-blue 0%, $color-btn-active-sub-blue 100%);
-        background: linear-gradient(to bottom,  $color-btn-active-blue 0%, $color-btn-active-sub-blue 100%);
+        background: -moz-linear-gradient(top,  lighten($color-btn-active-sub-blue, 2%) 0%, lighten($color-btn-active-blue, 10%) 100%);
+        background: -webkit-linear-gradient(top,  lighten($color-btn-active-sub-blue, 2%) 0%, lighten($color-btn-active-blue, 10%) 100%);
+        background: linear-gradient(to bottom,  lighten($color-btn-active-sub-blue, 2%) 0%, lighten($color-btn-active-blue, 10%) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-btn-active-blue', endColorstr='$color-btn-active-sub-blue',GradientType=1 );
+        box-shadow: 0 0 9px rgba(0, 131, 183, 0.9) inset;
       }
     }
 
