@@ -1,0 +1,28 @@
+@import "../config/base-mixins";
+
+$bp-tag-buttons: 530px;
+
+.tag-selections .tag-button {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+
+  &:before {
+    margin-right: 5px;
+    transform: rotateY(180deg);
+  }
+
+  @include breakpoint($bp-tag-buttons) {
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+  }
+
+  & + .tag-button {
+    margin-top: 10px;
+    @include breakpoint($bp-tag-buttons) {
+      margin-top: 0;
+      margin-left: 10px;
+    }
+  }
+}

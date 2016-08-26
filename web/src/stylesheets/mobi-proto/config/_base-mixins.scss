@@ -43,3 +43,29 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+@mixin addActionButtonBorder($color: '') {
+  border-bottom: 4px solid $color;
+
+  &:hover {
+    background-color: $color;
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    border-left: 4px solid $color;
+    border-bottom: none;
+  }
+}
+
+@mixin addTagStyle() {
+  & {
+    padding: 0 10px;
+    height: 30px;
+    background-color: $color-app-sub-green;
+  }
+
+  &:before {
+    margin-right: 5px;
+    transform: rotateY(180deg);
+  }
+}

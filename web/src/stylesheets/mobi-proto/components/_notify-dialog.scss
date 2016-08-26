@@ -1,0 +1,32 @@
+@import "../config/base-vars";
+@import "../config/base-mixins";
+
+$bp-notify-btn: 500px;
+
+.dialog.notify-dialog {
+  .notification-type-actions {
+    text-align: center;
+
+    .notify-btn {
+      width: 100%;
+
+      @include breakpoint($bp-notify-btn) {
+        width: auto;
+      }
+
+      & + .notify-btn {
+        margin-top: 10px;
+
+        @include breakpoint($bp-notify-btn) {
+          margin-left: 10px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .notify-actions .btn.close {
+    padding: 8px 10px 5px 10px;
+    margin: 0;
+  }
+}
