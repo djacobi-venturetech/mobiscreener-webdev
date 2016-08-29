@@ -10,7 +10,8 @@ jQuery(function () {
                 val = parseInt($barVal.data('score-bar-val')) || -1;
 
             if (val > 0) {
-                $barVal.width(Math.ceil((max / val) * 100) + '%');
+                //$barVal.width(Math.ceil((max / val) * 100) + '%');
+                $barVal.width(val + '%');
             }
             else {
                 $barVal.width('0%');
