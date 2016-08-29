@@ -242,6 +242,11 @@
           right: 0;
           bottom: 2.9rem;
           width: 6rem;
+
+          li a {
+            font-size: .75rem;
+          }
+
         }
 
         &:hover {
@@ -258,7 +263,12 @@
 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+  #header {
+    div.logout {
+      max-width: 20%;
+    }
+  }
 
 }
 
@@ -315,7 +325,7 @@
 
 	.nav-profile-con {
 	  display: block;
-	  height: auto;
+	  height: 100vh;
 	  min-width: 0;
 	  background: transparent;
 	  position: relative;
@@ -383,13 +393,36 @@
 	}
 
     div.logout {
-      width: 100%;
+      width: 65px;
       display: block;
       max-width: none;
+      position: absolute;
+      bottom: -15px;
+      left: 0;
 
       > ul.menu {
-        li.mi-parent {
+        > li.mi-parent {
           width: 100%;
+
+          > ul.menu-t2 {
+            left: 0;
+            right: -5.5rem;
+            bottom: 3rem;
+
+            li a {
+              font-size: .75rem;
+            }
+
+          }
+
+          > .menuitemlabel {
+            height: 50px;
+            span {
+              color: transparent;
+              height: 0;
+            }
+
+          }
 
           .menuitemlabel {
             font-size: 1rem;
@@ -398,8 +431,8 @@
             &::before {
               display: inline-block;
               vertical-align: middle;
-              height: 40px;
-              width: 40px;
+              height: 30px;
+              width: 30px;
               margin-right: .5rem;
             }
           }
