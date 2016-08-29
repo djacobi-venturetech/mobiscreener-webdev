@@ -7,7 +7,7 @@ $color-listing-background-grey: #eaeaea;
 $table-row-height: 126px;
 $table-row-column-left-padding: 9px;
 $action-button-height: 37px;
-$score-right-offset: 40%;
+$score-right-offset: 30%;
 
 .pager {
   margin-top: 0;
@@ -238,7 +238,7 @@ $score-right-offset: 40%;
     right: 0;
     bottom: 0;
     z-index: 2;
-    background: #131313;
+    background: rgba(0,0,0,0.85);
     color: $color-white;
 
     .candidate-confirmed-message {
@@ -325,7 +325,7 @@ $score-right-offset: 40%;
 
     @include breakpoint($bp-tablets-portrait)
     {
-      width: 70%;
+      width: 60%;
     }
   }
 
@@ -439,6 +439,10 @@ $score-right-offset: 40%;
     height: $table-row-height - 1;
     background-color: $color-listing-background-grey;
 
+    #invitations & {
+      color: $color-app-lighter-grey;
+    }
+
     @include breakpoint($bp-tablets-portrait) {
       position: absolute;
       top: 0;
@@ -494,14 +498,16 @@ $score-right-offset: 40%;
           border-left: 1px solid rgba(191, 191, 191, 0.48);
         }
 
-        .score-value:after {
-          font-size: 11px;
-        }
-
-        .score-label {
-          font-size: 10px;
-        }
       }
+
+      .score-value::after {
+        font-size: 11px;
+      }
+
+    }
+
+    .score-label {
+      font-size: 10px;
     }
 
     $score-bar-height: 15px;
@@ -518,6 +524,19 @@ $score-right-offset: 40%;
         height: $score-bar-height;
         box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
         border-radius: 10px;
+
+        &[data-score-bar-val="100"] {
+          background-color: $color-app-sub-green;
+        }
+
+        &[data-score-bar-val="50"], &[data-score-bar-val="75"] {
+          background-color: $color-app-sub-yellow;
+        }
+
+        &[data-score-bar-val="25"] {
+          background-color: $color-app-sub-red;
+        }
+
       }
     }
   }
@@ -529,7 +548,7 @@ $score-right-offset: 40%;
     right: 0;
     bottom: 0;
     z-index: 2;
-    background: #131313;
+    background: rgba(0,0,0,0.85);
     color: $color-white;
 
     @include breakpoint($bp-tablets-portrait) {
@@ -600,7 +619,7 @@ $score-right-offset: 40%;
     width: 100%;
     @include breakpoint($bp-tablets-portrait) {
       display: block;
-      width: 40%;
+      width: 30%;
       float: right;
     }
 
