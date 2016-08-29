@@ -90,6 +90,9 @@ $button-glyph-hieght: 36px;
   .btn.hire {
     @include addActionButtonColor($color-app-green);
   }
+  .btn.un-archive {
+    @include addActionButtonColor($color-app-yellow);
+  }
 }
 
 $prop-padding: 15px;
