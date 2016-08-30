@@ -69,3 +69,32 @@
     transform: rotateY(180deg);
   }
 }
+
+@function getScoreColorForLevel($scoreLevel: 'average') {
+  @if($scoreLevel == 'high') {
+    @return $color-app-high;
+  }
+  @else if($scoreLevel == 'low') {
+    @return $color-app-low;
+  }
+  @else {
+    @return $color-app-average;
+  }
+}
+
+
+@mixin addScoreBarColors($scoreLevel: 'average') {
+  .score-bar-value {
+      background-color: getScoreColorForLevel($scoreLevel);
+  }
+}
+
+@mixin addScoreTextColors($scoreLevel: 'average') {
+  .score-value {
+    color: getScoreColorForLevel($scoreLevel);
+
+    &:after {
+      color: #373a3c;
+    }
+  }
+}

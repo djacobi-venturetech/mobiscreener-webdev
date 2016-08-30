@@ -4,6 +4,7 @@
 @import "../components/select-tag-dialog";
 
 $color-listing-background-grey: #eaeaea;
+
 $table-row-height: 126px;
 $table-row-column-left-padding: 9px;
 $action-button-height: 37px;
@@ -497,13 +498,23 @@ $score-right-offset: 30%;
         & + .sub-score-container {
           border-left: 1px solid rgba(191, 191, 191, 0.48);
         }
-
       }
 
       .score-value::after {
         font-size: 11px;
       }
 
+      .color-high-score {
+        @include addScoreTextColors('high');
+      }
+
+      .color-average-score {
+        @include addScoreTextColors('average');
+      }
+
+      .color-low-score {
+        @include addScoreTextColors('low');
+      }
     }
 
     .score-label {
@@ -524,21 +535,21 @@ $score-right-offset: 30%;
         height: $score-bar-height;
         box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
         border-radius: 10px;
-
-        &[data-score-bar-val="100"] {
-          background-color: $color-app-sub-green;
-        }
-
-        &[data-score-bar-val="50"], &[data-score-bar-val="75"] {
-          background-color: $color-app-sub-yellow;
-        }
-
-        &[data-score-bar-val="25"] {
-          background-color: $color-app-sub-red;
-        }
-
       }
     }
+
+    .color-high-score {
+      @include addScoreBarColors('high');
+    }
+
+    .color-average-score {
+      @include addScoreBarColors('average');
+    }
+
+    .color-low-score {
+      @include addScoreBarColors('low');
+    }
+
   }
 
   .candidate-action-message-container .confirmation-action-container {
