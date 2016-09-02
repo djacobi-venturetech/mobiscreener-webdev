@@ -38,18 +38,37 @@ $button-glyph-hieght: 36px;
   background-color: rgba(255, 255, 255, 0.63);
 }
 
-.prop-viewer .prop-header-actions .persistence-actions {
+//Candidate actions
+.candidate-actions {
+  display: table;
+  width: 100%;
   margin: 0;
   text-align: center;
+  table-layout: fixed;
 
-  .btn {
+  .candidate-action {
+    display: table-cell;
+    margin: 0;
+    width: 17%;
+
+    &:first-child {
+      width: 15%;
+    }
+  }
+
+  .action-button {
+    width: 100%;
     overflow: hidden;
     color: $color-app-btn-font-black;
     background-color: transparent;
     border-radius: initial;
-    margin: 0;
-    width: 17%;
     height: $button-glyph-hieght + 10px;
+    border: none;
+    box-shadow: none;
+
+    @include breakpoint($bp-tablets-portrait) {
+      height: 60px;
+    }
 
     &:hover {
       color: $color-app-btn-font-black;
@@ -59,39 +78,113 @@ $button-glyph-hieght: 36px;
       display: block;
       font-size: 28px;
       height: $button-glyph-hieght;
+
+      @include breakpoint($bp-tablets-portrait) {
+        font-size: 22px;
+        height: 23px;
+      }
     }
   }
 
-  .btn.back {
+  .candidate-action-reinvite .action-button {
+    @include addActionButtonColor($color-app-sub-purple);
+  }
+
+  .candidate-action-move-forward .action-button {
+    @include addActionButtonColor($color-app-sub-blue);
+  }
+
+  .candidate-action-back .action-button {
     @include addActionButtonColor($color-app-dark-grey);
-    width: 15%;
 
     &:hover {
       color: $color-white;
     }
   }
-
-  .btn.re-invite {
-    @include addActionButtonColor($color-app-sub-purple);
-  }
-
-  .btn.edit {
+  .candidate-action-edit .action-button {
     @include addActionButtonColor($color-app-lightest-grey);
   }
 
-  .btn.move-forward {
-    @include addActionButtonColor($color-app-sub-blue);
+  .candidate-action-archive,
+  .candidate-action-un-archive {
+    .action-button {
+      @include addActionButtonColor($color-app-yellow);
+    }
   }
 
-  .btn.archive {
-    @include addActionButtonColor($color-app-yellow);
-  }
-
-  .btn.hire {
+  .candidate-action-hire .action-button {
     @include addActionButtonColor($color-app-green);
   }
-  .btn.un-archive {
-    @include addActionButtonColor($color-app-yellow);
+
+  .candidate-action-exit .action-button {
+    @include addActionButtonColor($color-app-sub-red);
+  }
+}
+
+//Confirmation container
+.confirmation-action-container {
+  background: rgba(0,0,0,0.85);
+  color: $color-white;
+
+  $message-btn-spacing: 15px;
+
+  .confirmation-action-message {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    padding-top: $message-btn-spacing;
+  }
+
+  .confirmation-actions {
+    margin-top: 5px;
+    padding: 0 10px 10px;
+    text-align: center;
+
+    @include breakpoint($bp-tablets-portrait) {
+      margin-top: $message-btn-spacing;
+    }
+
+    .btn {
+      color: $color-app-btn-font-black;
+      white-space: normal;
+      overflow: hidden;
+      height: 30px;
+      width: 100%;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+
+      @include breakpoint($bp-tablets-portrait) {
+        height: 40px;
+        width: auto;
+      }
+
+      + .btn {
+        margin-top: 10px;
+
+        @include breakpoint($bp-tablets-portrait) {
+          margin-top: 0;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .btn:before {
+      display: block;
+      margin-right: 5px;
+
+      @include breakpoint($bp-tablets-portrait) {
+        display: inline-block;
+      }
+    }
+
+    .btn.ok {
+      background-color: $color-app-sub-green;
+    }
+
+    .btn.cancel {
+      background-color: $color-app-sub-red;
+    }
   }
 }
 
@@ -131,11 +224,12 @@ $prop-padding: 15px;
       display: inline-block;
       padding: 0;
       line-height: 30px;
-      @include glyphAddBefore($icon-tag);
-      @include addTagStyle();
 
-      label {
-        display: none;
+      .tag-button {
+        border: none;
+        box-shadow: none;
+
+        @include addTagStyle();
       }
     }
 
@@ -172,6 +266,10 @@ $prop-padding: 15px;
 
     .prop.history {
       padding-bottom: 15px;
+
+      .val {
+        display: block;
+      }
 
       .miwt-table-con {
         margin: $prop-padding $prop-padding 0;
