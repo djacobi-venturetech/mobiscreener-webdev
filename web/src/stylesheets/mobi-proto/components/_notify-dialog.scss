@@ -4,7 +4,22 @@
 $bp-notify-btn: 500px;
 
 .dialog.notify-dialog {
-  left: 10% !important;
+  width: 14rem !important;
+  left: 50% !important;
+  margin-left: -7rem !important;
+
+  .btn {
+    color: $color-white;
+    background-color: $color-app-brand;
+    border: 1px solid $color-app-brand;
+    font-weight: normal;
+    text-shadow: none;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-app-light-blue;
+    }
+  }
 
   .notification-type-actions {
     text-align: center;
@@ -12,23 +27,29 @@ $bp-notify-btn: 500px;
     .notify-btn {
       width: 100%;
 
-      @include breakpoint($bp-notify-btn) {
-        width: auto;
-      }
-
       & + .notify-btn {
         margin-top: 10px;
-
-        @include breakpoint($bp-notify-btn) {
-          margin-left: 10px;
-          margin-top: 0;
-        }
       }
     }
   }
 
-  .notify-actions .btn.close {
-    padding: 8px 10px 5px 10px;
-    margin: 0;
+  .notify-actions {
+    text-align: center;
+    margin-top: 10px;
+
+    .btn.close {
+      padding: 8px 10px 5px 10px;
+      margin: 0;
+      opacity: 1;
+      width: 100%;
+      color: $color-app-light-blue;
+      border: 1px solid $color-app-light-blue;
+      background-color: $color-white;
+
+      &:hover {
+        color: $color-app-light-blue;
+        background-color: $color-smokey-white;
+      }
+    }
   }
 }

@@ -1,0 +1,54 @@
+@import "../config/base-vars";
+
+#e-COLUMN-0 {
+  margin-bottom: 25px;
+  margin-top: 15px;
+
+  #column1 {
+    width: 100%;
+    margin: 15px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+    background-color: rgba(255, 255, 255, 0.6);
+    max-width: 50rem;
+
+    .miwt {
+      padding: 10px;
+    }
+  }
+
+  .header-text {
+    padding: 0.375rem 1rem;
+    background-color: rgba(216, 216, 216, 0.45);
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+.prop-header {
+  display: none;
+}
+
+.prop-body .prop.picture {
+  text-align: center;
+}
+
+.prop-footer {
+  .bottom.actions {
+    margin: 0;
+
+    .btn {
+      color: $color-white;
+      background-color: $color-app-brand;
+      border: 1px solid $color-app-brand;
+      font-weight: normal;
+      text-shadow: none;
+
+      &:hover {
+        color: $color-white;
+        background-color: $color-app-light-blue;
+      }
+    }
+  }
+}

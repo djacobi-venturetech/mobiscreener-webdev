@@ -25,7 +25,6 @@ div.window.dialog /*specificity*/ {
 	  background-color: $color-app-grey;
 	  height: 70px;
 	  color: $color-white;
-
 	}
 
 	td.activewindowtitle {
@@ -41,11 +40,17 @@ div.window.dialog /*specificity*/ {
 	}
 	td.windowbuttons {
 		color: inherit;
-		height: auto;
-		border-bottom: 1px solid $modal-header-border-color;
+		display: inline-block;
+		height: 100%;
+		width: 60px;
+		vertical-align: middle;
+		text-align: center;
+
 		.btn { // assuming close - only 1 button currently
 			background-color: transparent;
-			padding: 0 10px 0 0;
+			width: 100%;
+			height: 100%;
+			padding: 0;
 		}
 	}
 	.windowcontent {

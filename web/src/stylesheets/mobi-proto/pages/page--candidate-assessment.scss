@@ -138,7 +138,7 @@ $color-btn-active-blue: #4fbcdd;
     }
 
     span.nanp_example {
-      color: $color-app-lightest-grey;
+      color: #454545;
       font-size: 75%;
       font-style: italic;
       margin-bottom: 1rem;
@@ -185,12 +185,12 @@ $color-btn-active-blue: #4fbcdd;
   .form_field {
 
     p {
-      font-size: .9rem;
+      font-size: .85rem;
       line-height: 1.25rem;
       font-style: italic;
       text-align: center;
       padding: 0 1rem;
-      color: $color-app-light-grey;
+      color: #363636;
     }
 
     > span.label {
@@ -216,11 +216,6 @@ $color-btn-active-blue: #4fbcdd;
 
   .form_field {
     text-align: center;
-
-    /*span.label {
-      text-align: center;
-    }*/
-
   }
 
   .button_description_container {
@@ -310,6 +305,17 @@ $color-btn-active-blue: #4fbcdd;
     margin-bottom: .85rem;
   }
 
+}
+
+.question {
+  .employment-years,
+  .years-experience {
+    text-align: left;
+
+    input {
+      max-width: 80px;
+    }
+  }
 }
 
 .thank-you {

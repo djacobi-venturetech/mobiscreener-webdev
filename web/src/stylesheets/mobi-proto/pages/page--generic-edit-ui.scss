@@ -1,0 +1,74 @@
+@import "../config/base-vars";
+
+#e-COLUMN-0 {
+  margin-bottom: 25px;
+  margin-top: 15px;
+
+  #column1 {
+    width: 100%;
+
+    .miwt {
+      margin: 15px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 10px;
+      max-width: 50rem;
+    }
+  }
+}
+
+.prop-header {
+  display: none;
+}
+
+.prop-editor .prop-body .prop {
+  padding: 0;
+
+  .val {
+    width: 100%;
+    min-width: initial;
+    margin: 0;
+
+    input[type="text"] {
+      max-width: 270px;
+    }
+  }
+}
+
+.picture-editor {
+  margin: 0 auto;
+
+  &.mode-crop {
+    margin: 10px auto!important;
+  }
+}
+
+.prop-footer {
+  .bottom.actions {
+    margin: 0;
+
+    .btn {
+      color: $color-white;
+      background-color: $color-app-brand;
+      border: 1px solid $color-app-brand;
+      font-weight: normal;
+      text-shadow: none;
+
+      &:hover {
+        color: $color-white;
+        background-color: $color-app-light-blue;
+      }
+    }
+
+    .btn.cancel {
+      color: $color-app-light-blue;
+      border: 1px solid $color-app-light-blue;
+      background-color: $color-white;
+
+      &:hover {
+        color: $color-app-light-blue;
+        background-color: $color-smokey-white;
+      }
+    }
+  }
+}
