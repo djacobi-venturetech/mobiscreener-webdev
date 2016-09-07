@@ -1,0 +1,19 @@
+@import "../config/base-vars";
+@import "../config/base-mixins";
+
+.prop-header-actions {
+  display: none;
+}
+
+.range-wrapper {
+  .range-display {
+    display: inline-block;
+    font-size: 30px;
+    min-width: 45px;
+    vertical-align: middle;
+  }
+
+  input[type="range"].val {
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,136 @@
+@import "../config/base-vars";
+@import "../config/base-mixins";
+
+$prop-margin-top: 10px;
+#column1 {
+  max-width: 50rem;
+  width: 100%;
+  margin: 15px auto;
+  padding: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+  background-color: rgba(255, 255, 255, 0.6);
+
+  .header-text {
+    padding: 0.375rem 1rem;
+    background-color: rgba(216, 216, 216, 0.45);
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .assessement-link-info {
+    padding: 0.375rem 1rem;
+    margin-top: 15px;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.assessment-links {
+  margin-top: 10px;
+  padding: 0.375rem 1rem 1rem;
+}
+
+.full.link .val,
+.short-link .val {
+  word-wrap: break-word;
+}
+
+.link {
+
+  .trigger {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    text-align: left;
+    border: 1px solid $color-app-black;
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgba(185, 185, 185, 0.5);
+    }
+  }
+
+  & + & .trigger {
+    border-top: none;
+  }
+
+  .miwt-collapsable-content {
+    display: none;
+    border: 1px solid $color-app-black;
+    border-top: none;
+    padding: .375rem 1rem;
+  }
+
+  &.shown {
+    .trigger {
+      background-color: #c5c5c5;
+
+      &:hover {
+        background-color: rgba(185, 185, 185, 0.5);
+      }
+    }
+
+    .miwt-collapsable-content {
+      display: block!important;
+    }
+  }
+
+  .prop {
+    display: block;
+
+    .label {
+      display: inline-block;
+      padding: 0;
+      margin-right: 10px;
+      color: #373a3c;
+      font-size: 100%;
+      line-height: normal;
+    }
+  }
+
+  .links {
+    .prop + .prop {
+      margin-top: $prop-margin-top;
+    }
+  }
+
+  .info {
+    margin-top: $prop-margin-top;
+
+    .prop + .prop {
+      margin-top: $prop-margin-top;
+    }
+
+    ul {
+      margin: 0;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    .info {
+      display: table;
+      width: 100%;
+
+      .prop {
+        display: table-cell;
+        width: 30%;
+        padding-right: 10px;
+        margin: 0;
+      }
+
+      .description {
+        width: 40%;
+      }
+
+      .label {
+        display: block;
+        text-align: left;
+      }
+    }
+  }
+
+}

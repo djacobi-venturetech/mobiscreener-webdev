@@ -4,10 +4,13 @@
 @import "../components/select-tag-dialog";
 
 $color-listing-background-grey: #eaeaea;
-$table-row-height: 126px;
-$table-row-column-left-padding: 9px;
+
+$table-row-height: 146px;
+$table-row-column-left-padding: 10px;
 $action-button-height: 37px;
 $score-right-offset: 30%;
+$keyword-search-transition-time: 0.35s;
+$color-reset-button: rgba(144, 144, 144, 0.55);
 
 .pager {
   margin-top: 0;
@@ -18,18 +21,25 @@ $score-right-offset: 30%;
 }
 
 .top-actions-bar {
+  display: flex;
+  justify-content: flex-end;
   margin: 10px 0;
   position: relative;
   z-index: 99;
   text-align: right;
 
-  > * {
-    display: inline-block;
-    vertical-align: top;
-  }
+  .search-constraints {
+    display: flex;
+    margin-left: 10px;
 
-  .search-constraints > div {
-    display: inline-block;
+    @include breakpoint($bp-tablets-portrait) {
+      align-items: center;
+    }
+
+    & > div {
+      display: inline-block;
+      vertical-align: top;
+    }
   }
 
   @include breakpoint($bp-tablets-landscape) {
@@ -43,7 +53,6 @@ $score-right-offset: 30%;
     height: 35px;
     padding: 5px;
     width: 35px;
-    margin: 0 10px;
     font-family: $font-open-sans;
 
     &::before {
@@ -51,6 +60,24 @@ $score-right-offset: 30%;
       margin-right: 5px;
       color: $color-app-btn-font-black;
       margin-top: -3px;
+      width: 100%;
+    }
+
+    &.reset-search-button {
+      color: $color-reset-button;
+
+      &:before {
+        color: $color-reset-button;
+        text-shadow: -1px 1px 1px rgba(146, 146, 146, 0.41);
+      }
+
+      &:hover {
+        color: $color-app-btn-font-black;
+        &:before {
+          color: $color-app-btn-font-black;
+          text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.41);
+        }
+      }
     }
 
     &:active {
@@ -61,11 +88,13 @@ $score-right-offset: 30%;
       overflow: auto;
       width: auto;
       height: auto;
+      margin: 0 10px;
       padding: 5px;
       color: $color-app-btn-font-black;
 
       &:before {
         font-size: 23px !important;
+        width: auto;
       }
     }
 
@@ -120,7 +149,7 @@ $score-right-offset: 30%;
 
     span.display-label {
       text-align: center;
-      color: darken($color-app-blue, 5%);
+      color: $color-app-sub-blue;
       margin-bottom: 5px;
 
       &::before {
@@ -154,8 +183,111 @@ $score-right-offset: 30%;
 
 }
 
+.search-constraints > div:first-child {
+  position: relative;
+
+  input[type="text"] {
+    padding-left: 0;
+    width: 0;
+    //transition: width $keyword-search-transition-time linear, padding $keyword-search-transition-time linear;
+    border: none;
+  }
+
+  .search-actions-container {
+    //position: absolute;
+    //top: 0;
+    //bottom: 0;
+    //left: 100%;
+    //right: 0;
+    //transition: left $keyword-search-transition-time linear;
+  }
+
+  .btn.filter-btn {
+    @include glyphAddBefore("\f002");
+    width: 31px;
+    position: absolute;
+    top: 0;
+    left: -35px;
+    padding: 0 2px;
+    margin: 0;
+    overflow: hidden;
+    //transition: left $keyword-search-transition-time linear;
+  }
+
+  .btn.reset {
+    display: none;
+    @include glyphAddBefore("\f00d");
+    width: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px;
+    margin: 0;
+    overflow: hidden;
+
+    @include breakpoint($bp-tablets-portrait) {
+      width: 25px;
+    }
+  }
+
+  @include breakpoint($bp-mobile-landscape) {
+    .btn.filter-btn,
+    .search-actions-container,
+    input[type="text"]
+    {
+      transition: none;
+    }
+
+    input[type="text"] {
+      padding-left: 30px;
+      width: 100%;
+      border: 2px inset;
+    }
+
+    .search-actions-container {
+      left: 0;
+    }
+
+    .btn.filter-btn {
+      left: 0;
+      padding: 2px;
+    }
+
+    .btn.reset {
+      display: inline-block;
+    }
+  }
+
+  @include breakpoint($bp-tablets-portrait) {
+    input[type="text"] {
+      padding-left: 25px;
+    }
+  }
+
+  &.shown {
+    input[type="text"] {
+      padding-left: 30px;
+      width: 100%;
+      border: 2px inset;
+    }
+
+    .search-actions-container {
+      left: 0;
+    }
+
+    .btn.filter-btn {
+      left: 0;
+      padding: 2px;
+    }
+
+    .btn.reset {
+      display: inline-block;
+    }
+  }
+}
+
 .search-navigation-actions {
-  float: left;
+  margin-right: auto;
 
   @include breakpoint($bp-tablets-landscape) {
     padding: 0;
@@ -225,6 +357,7 @@ $score-right-offset: 30%;
     display: table;
     width: 100%;
     background-color: $color-almost-white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
 
     & + .candidate-row {
       margin-top: 10px;
@@ -238,7 +371,7 @@ $score-right-offset: 30%;
     right: 0;
     bottom: 0;
     z-index: 2;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.8);
     color: $color-white;
 
     .candidate-confirmed-message {
@@ -284,27 +417,12 @@ $score-right-offset: 30%;
 
       &:before {
         margin-right: 8px;
+        width: 35px;
         padding: $table-row-column-left-padding;
         vertical-align: middle;
         background-color: $color-app-dark-grey;
         color: $btn-primary-color;
       }
-    }
-
-    .tag {
-      display: none;
-      width: 30%;
-      text-align: right;
-      padding: 3px;
-      max-width: 0;
-
-      @include breakpoint($bp-mobile-landscape) {
-        display: table-cell;
-      }
-    }
-
-    .tag-button {
-      @include addTagStyle();
     }
   }
 
@@ -327,6 +445,10 @@ $score-right-offset: 30%;
     {
       width: 60%;
     }
+
+    .tag-button:before {
+      margin-right: 5px;
+    }
   }
 
   .candidate-actions-score-container {
@@ -345,7 +467,7 @@ $score-right-offset: 30%;
     position: relative;
 
     @include breakpoint($bp-tablets-portrait) {
-      height: 114px;
+      height: 144px;
     }
   }
 
@@ -358,7 +480,7 @@ $score-right-offset: 30%;
 
   .candidate-meta-container {
     position: relative;
-    max-width: 34px;
+    max-width: 35px;
     background-color: $color-app-light-blue;
     color: $color-almost-white;
 
@@ -431,13 +553,16 @@ $score-right-offset: 30%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        min-height: 24px;
       }
     }
   }
 
   .candidate-scores {
-    height: $table-row-height - 1;
+    height: $table-row-height;
     background-color: $color-listing-background-grey;
+    padding-top: 5px;
+    font-family: Helvetica, Arial, serif;
 
     #invitations & {
       color: $color-app-lighter-grey;
@@ -450,64 +575,118 @@ $score-right-offset: 30%;
       bottom: 0;
       right: $score-right-offset;
       height: auto;
+      padding-top: 0;
     }
 
     .score-value:after {
       content: "%";
       font-size: 20px;
       margin-left: 2px;
+      font-weight: normal;
     }
 
     .overall-score {
-      height: 100%;
+      height: 50%;
       padding: 10px;
       text-align: center;
 
       @include breakpoint($bp-tablets-portrait) {
-        height: 50%;
-        margin-top: 5px;
+        margin-top: 25px;
+        height: auto;
+        padding-bottom: 5px;
+      }
+
+      .score-label {
+        line-height: 14px;
+        font-size: 12px;
+
+        @include breakpoint($bp-mobile-landscape) {
+          line-height: 15px;
+          font-size: 15px;
+        }
+        @include breakpoint($bp-tablets-portrait) {
+          line-height: 18px;
+          font-size: 18px;
+        }
       }
 
       .score-value {
-        margin-top: 15px;
-        font-size: 34px;
+        font-size: 28px;
         line-height: 28px;
 
         @include breakpoint($bp-tablets-portrait) {
-          margin-top: 0;
-          font-size: 28px;
-          line-height: 20px;
+          line-height: 30px;
         }
       }
     }
 
     .sub-scores-container {
-      display: none;
+      display: table;
+      width: 100%;
+      margin: 13px 0;
 
       @include breakpoint($bp-tablets-portrait) {
-        display: table;
-        width: 100%;
-        margin: 13px 0;
+        margin: 0;
       }
 
       .sub-score-container {
         display: table-cell;
         width: 50%;
+        padding: 4px 0;
 
         & + .sub-score-container {
           border-left: 1px solid rgba(191, 191, 191, 0.48);
         }
-
       }
 
       .score-value::after {
         font-size: 11px;
       }
 
+      .color-high-score {
+        @include addScoreTextColors('high');
+      }
+
+      .color-average-score {
+        @include addScoreTextColors('average');
+      }
+
+      .color-low-score {
+        @include addScoreTextColors('low');
+      }
+
+      @include breakpoint($bp-mobile-landscape) {
+        .score-value {
+          font-size: 18px;
+          line-height: 18px;
+        }
+
+        .score-label {
+          font-size: 12px;
+          line-height: 11px;
+        }
+      }
+
+      @include breakpoint($bp-tablets-portrait) {
+        .score-value {
+          font-size: 22px;
+          line-height: 22px;
+
+          &:after {
+            font-size: 16px;
+          }
+        }
+
+        .score-label {
+          font-size: 16px;
+          line-height: 15px;
+        }
+      }
     }
 
     .score-label {
       font-size: 10px;
+      line-height: 6px;
     }
 
     $score-bar-height: 15px;
@@ -524,21 +703,21 @@ $score-right-offset: 30%;
         height: $score-bar-height;
         box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
         border-radius: 10px;
-
-        &[data-score-bar-val="100"] {
-          background-color: $color-app-sub-green;
-        }
-
-        &[data-score-bar-val="50"], &[data-score-bar-val="75"] {
-          background-color: $color-app-sub-yellow;
-        }
-
-        &[data-score-bar-val="25"] {
-          background-color: $color-app-sub-red;
-        }
-
       }
     }
+
+    .color-high-score {
+      @include addScoreBarColors('high');
+    }
+
+    .color-average-score {
+      @include addScoreBarColors('average');
+    }
+
+    .color-low-score {
+      @include addScoreBarColors('low');
+    }
+
   }
 
   .candidate-action-message-container .confirmation-action-container {
@@ -576,7 +755,7 @@ $score-right-offset: 30%;
         color: $color-app-btn-font-black;
         white-space: normal;
         overflow: hidden;
-        height: 30px;
+        height: 28px;
         width: 100%;
         border-radius: 0;
 
@@ -608,7 +787,7 @@ $score-right-offset: 30%;
         background-color: $color-app-sub-green;
       }
 
-      .btn.undo {
+      .btn.cancel {
         background-color: $color-app-sub-red;
       }
     }
@@ -617,6 +796,7 @@ $score-right-offset: 30%;
   .candidate-actions {
     display: table;
     width: 100%;
+
     @include breakpoint($bp-tablets-portrait) {
       display: block;
       width: 30%;
@@ -669,7 +849,7 @@ $score-right-offset: 30%;
 
       @include breakpoint($bp-tablets-portrait)
       {
-        height: 50px;
+        height: 60px;
         font-size: 13px;
       }
 
@@ -677,9 +857,11 @@ $score-right-offset: 30%;
         display: block;
         font-size: 25px;
         padding-top: 3px;
+        margin-bottom: 5px;
 
         @include breakpoint($bp-tablets-portrait) {
           font-size: 20px;
+          margin-bottom: 0;
         }
       }
 

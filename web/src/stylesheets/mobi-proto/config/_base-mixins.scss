@@ -20,6 +20,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.41);
   }
 }
 
@@ -41,6 +42,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.41);
   }
 }
 
@@ -61,11 +63,40 @@
   & {
     padding: 0 10px;
     height: 30px;
-    background-color: $color-app-sub-green;
+    background-color: rgba(189, 189, 189, 0.75);
   }
 
   &:before {
     margin-right: 5px;
     transform: rotateY(180deg);
+  }
+}
+
+@function getScoreColorForLevel($scoreLevel: 'average') {
+  @if($scoreLevel == 'high') {
+    @return $color-app-high;
+  }
+  @else if($scoreLevel == 'low') {
+    @return $color-app-low;
+  }
+  @else {
+    @return $color-app-average;
+  }
+}
+
+
+@mixin addScoreBarColors($scoreLevel: 'average') {
+  .score-bar-value {
+      background-color: getScoreColorForLevel($scoreLevel);
+  }
+}
+
+@mixin addScoreTextColors($scoreLevel: 'average') {
+  .score-value {
+    color: darken(getScoreColorForLevel($scoreLevel), 20%);
+
+    &:after {
+      color: #373a3c;
+    }
   }
 }
