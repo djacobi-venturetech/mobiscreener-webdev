@@ -39,6 +39,27 @@ body {
 	@include breakpoint($bp-tablets-landscape) {
 		width: 25%;
 	}
+
+	.page-title-component {
+		align-items: flex-end;
+		margin-left: auto;
+
+		@include breakpoint($bp-tablets-landscape) {
+			display: none;
+		}
+	}
+}
+
+.header-text {
+	display: none;
+
+	@include breakpoint($bp-tablets-landscape) {
+		display: block;
+	}
+}
+
+.header-text-always-show {
+	display: block;
 }
 
 #e-COLUMN-0 {
