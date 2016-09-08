@@ -11,6 +11,7 @@ $action-button-height: 40px;
 $score-right-offset: 30%;
 $keyword-search-transition-time: 0.35s;
 $color-reset-button: rgba(144, 144, 144, 0.55);
+$table-row-tablet-height: 146px;
 
 @mixin getShowKeywordSearchStyles() {
   input[type="text"] {
@@ -459,6 +460,12 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
       width: 55%;
     }
 
+    .tag {
+      margin-top: 5px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
     .tag-button {
       @include addTagStyle();
     }
@@ -479,8 +486,8 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
     height: $table-row-height;
     position: relative;
 
-    @include breakpoint($bp-tablets-landscape) {
-      height: 146px;
+    @include breakpoint($bp-tablets-portrait) {
+      height: $table-row-tablet-height;
     }
   }
 
@@ -502,6 +509,7 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
       bottom: 5px !important;
       right: 0;
       left: 0;
+      top: 100px;
       display: block;
     }
   }
@@ -515,7 +523,7 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
   }
 
   .notes-wrapper {
-    //margin-top: 5px;
+    margin-top: 5px;
     overflow: hidden;
     text-align: justify;
     //margin-right: -1em;
@@ -555,6 +563,7 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
 
     @include breakpoint($bp-desktop) {
       position: absolute;
+      margin-top: 0;
       right: 10px;
       top: 0;
       width: 48%;
@@ -627,6 +636,7 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
   }
 
   .candidate-scores {
+    position: relative;
     height: $table-row-height;
     background-color: $color-listing-background-grey;
     padding-top: 5px;
@@ -654,6 +664,7 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
     }
 
     .overall-score {
+      position: relative;
       height: 50%;
       padding: 10px;
       text-align: center;
@@ -665,6 +676,7 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
       }
 
       .score-label {
+        display: inline-block;
         line-height: 14px;
         font-size: 12px;
 
@@ -684,6 +696,19 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
 
         @include breakpoint($bp-tablets-portrait) {
           line-height: 30px;
+        }
+      }
+
+      .high-unlikely-virtue {
+        display: inline-flex;
+        margin-left: 5px;
+
+        @include glyphAddAfter("\f071", 10px, #F12C2C);
+
+        @include breakpoint($bp-mobile-landscape) {
+          &:after {
+            font-size: 18px;
+          }
         }
       }
     }
@@ -807,7 +832,11 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
       display: block;
       margin-top: 10px;
       text-align: center;
-      font-size: 20px;
+      font-size: 17px;
+
+      @include breakpoint($bp-tablets-portrait) {
+        font-size: 20px;
+      }
     }
 
     .confirmation-actions {
@@ -898,12 +927,22 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
         }
       }
 
+      .candidate-action-un-archive .action-button {
+        @include breakpoint($bp-tablets-portrait) {
+          height: $table-row-tablet-height + 40px;
+        }
+      }
+
       .candidate-action-hire .action-button {
         @include addActionButtonBorder($color-app-green);
       }
 
       .candidate-action-exit .action-button {
         @include addActionButtonBorder($color-app-sub-red);
+
+        @include breakpoint($bp-tablets-portrait) {
+          height: $table-row-tablet-height + 40px;
+        }
       }
     }
 
