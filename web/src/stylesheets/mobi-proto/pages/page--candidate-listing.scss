@@ -541,7 +541,6 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
         bottom: 0;
       }
 
-      /* hide ... if we have text, which is less than or equal to max lines */
       &:after {
         content: '';
         position: absolute;
