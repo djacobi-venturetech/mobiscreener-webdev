@@ -1,16 +1,19 @@
 jQuery(function ($) {
 
     $('.miwt-form input[type=\'range\']').wrap('<div class="range-wrapper"></div>');
-    $('.miwt-form .range-wrapper').prepend('<span class="range-display"></span>');
+    $('.miwt-form .range-wrapper').prepend('<span class="range-display"></span><div class="range-details"></div>');
 
-    function setupRangeDisplay($rangeInput) {
-        var $rangeWrapper = $rangeInput.parent().find('.range-wrapper'),
-            $rangeValDisp = $rangeInput.parent().find('.range-display');
+    function setupRangeDisplay($rangeInput, $instructions, $label) {
+        var $rangeParentProp = $rangeInput.parents('.prop'),
+            $rangeValDisp = $rangeParentProp.find('.range-display'),
+            $rangeDetails = $rangeParentProp.find('.range-details');
 
         var val = $rangeInput.val();
         $rangeValDisp.text(val);
 
-        $rangeWrapper.append($rangeInput);
+        $rangeDetails.append($label);
+        $rangeDetails.append($instructions);
+        $rangeDetails.append($rangeInput);
         $rangeInput.on('input', function() {
             var val = $rangeInput.val();
             $rangeValDisp.text(val);
@@ -20,7 +23,12 @@ jQuery(function ($) {
     function initRangeDisplay($form) {
         var $ranges = $form.find('.prop input[type=\'range\']');
         $ranges.each(function () {
-            setupRangeDisplay($(this));
+            var $thisRange = $(this);
+            setupRangeDisplay(
+                $thisRange,
+                $thisRange.parents('.prop').find('.instructions'),
+                $thisRange.parents('.prop').find('> label')
+            );
         });
     }
 

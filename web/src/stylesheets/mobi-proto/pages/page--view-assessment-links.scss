@@ -30,8 +30,8 @@ $prop-margin-top: 10px;
 }
 
 .assessment-links {
-  margin-top: 10px;
-  padding: 0.375rem 1rem 1rem;
+  margin: 0.375rem 1rem 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.55);
 }
 
 .full.link .val,
@@ -40,17 +40,23 @@ $prop-margin-top: 10px;
 }
 
 .link {
+  $trigger-btn-dark-blue: #1a6285;
+  $trigger-btn-light-blue: #3286b5;
+  $trigger-btn-grey: #e8e8e8;
 
   .trigger {
     display: block;
     width: 100%;
     border-radius: 0;
     text-align: left;
-    border: 1px solid $color-app-black;
-    background-color: transparent;
+    border: none;
+    color: $color-white;
+    border-bottom: 10px solid $trigger-btn-dark-blue;
+    background-color: $trigger-btn-light-blue;
+    font-size: 22px;
 
     &:hover {
-      background-color: rgba(185, 185, 185, 0.5);
+      background-color: lighten($trigger-btn-light-blue, 5%);
     }
   }
 
@@ -60,17 +66,17 @@ $prop-margin-top: 10px;
 
   .miwt-collapsable-content {
     display: none;
-    border: 1px solid $color-app-black;
-    border-top: none;
     padding: .375rem 1rem;
   }
 
   &.shown {
     .trigger {
-      background-color: #c5c5c5;
+      background-color: $trigger-btn-grey;
+      color: $trigger-btn-dark-blue;
+      border-bottom-color: $trigger-btn-light-blue;
 
       &:hover {
-        background-color: rgba(185, 185, 185, 0.5);
+        background-color: lighten($trigger-btn-grey, 5%);
       }
     }
 
@@ -86,8 +92,8 @@ $prop-margin-top: 10px;
       display: inline-block;
       padding: 0;
       margin-right: 10px;
-      color: #373a3c;
-      font-size: 100%;
+      color: $color-app-light-blue;
+      font-size: 18px;
       line-height: normal;
     }
   }
@@ -107,6 +113,7 @@ $prop-margin-top: 10px;
 
     ul {
       margin: 0;
+      padding-left: 18px;
     }
   }
 

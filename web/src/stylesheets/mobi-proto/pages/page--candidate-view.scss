@@ -51,8 +51,10 @@ $button-glyph-hieght: 36px;
     margin: 0;
     width: 17%;
 
+    //THIS SHOULD BE THE BACK BUTTON. REMOVE IF NO BACK BUTTON IN UI
     &:first-child {
       width: 15%;
+      display: none;
     }
   }
 
@@ -65,6 +67,7 @@ $button-glyph-hieght: 36px;
     height: $button-glyph-hieght + 10px;
     border: none;
     box-shadow: none;
+    text-transform: initial;
 
     @include breakpoint($bp-tablets-portrait) {
       height: 60px;
@@ -148,7 +151,7 @@ $button-glyph-hieght: 36px;
       color: $color-app-btn-font-black;
       white-space: normal;
       overflow: hidden;
-      height: 30px;
+      height: 28px;
       width: 100%;
       border-radius: 0;
       border: none;
@@ -157,6 +160,8 @@ $button-glyph-hieght: 36px;
       @include breakpoint($bp-tablets-portrait) {
         height: 40px;
         width: auto;
+        display: inline-flex;
+        align-items: center;
       }
 
       + .btn {
@@ -171,10 +176,12 @@ $button-glyph-hieght: 36px;
 
     .btn:before {
       display: block;
-      margin-right: 5px;
+      padding-bottom: 5px;
 
       @include breakpoint($bp-tablets-portrait) {
         display: inline-block;
+        margin-right: 5px;
+        padding-bottom: 0;
       }
     }
 
@@ -207,7 +214,7 @@ $prop-padding: 15px;
 
     .prop.name {
       text-align: center;
-      font-size: 20px;
+      font-size: 26px;
       font-weight: bold;
       background-color: rgba(216, 216, 216, 0.45);
     }
@@ -280,9 +287,100 @@ $prop-padding: 15px;
           background-color: #e0e0e0;
         }
       }
+
+      .pager-bottom {
+        padding-top: 15px;
+      }
     }
 
   }
+}
+
+.prop.scores {
+  display: table;
+  width: 100%;
+  padding-top: 5px;
+  font-family: Helvetica, Arial, serif;
+
+  #invitations & {
+    color: $color-app-lighter-grey;
+  }
+
+  .score-value:after {
+    content: "%";
+    font-size: 20px;
+    margin-left: 2px;
+    font-weight: normal;
+  }
+
+  .overall-container {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+
+    label {
+      font-size: 26px;
+    }
+
+    .score-value {
+      font-size: 28px;
+      line-height: 28px;
+    }
+  }
+
+  .sub-scores-container {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+
+    .score-value::after {
+      font-size: 11px;
+    }
+
+    .color-high-score {
+      @include addScoreTextColors('high');
+    }
+
+    .color-average-score {
+      @include addScoreTextColors('average');
+    }
+
+    .color-low-score {
+      @include addScoreTextColors('low');
+    }
+  }
+
+  $score-bar-height: 15px;
+
+  .score-bar-container {
+    position: relative;
+    height: $score-bar-height;
+    margin: 5px 10px;
+    background-color: white;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    border-radius: 10px;
+
+    .score-bar-value {
+      height: $score-bar-height;
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      border-radius: 10px;
+    }
+  }
+
+  .color-high-score {
+    @include addScoreBarColors('high');
+  }
+
+  .color-average-score {
+    @include addScoreBarColors('average');
+  }
+
+  .color-low-score {
+    @include addScoreBarColors('low');
+  }
+
 }
 
 .prop-footer-actions {

@@ -8,16 +8,18 @@ $bp-notify-btn: 500px;
   left: 50% !important;
   margin-left: -7rem !important;
 
-  .btn {
-    color: $color-white;
-    background-color: $color-app-brand;
-    border: 1px solid $color-app-brand;
-    font-weight: normal;
-    text-shadow: none;
-
-    &:hover {
+  .windowcontent {
+    .btn {
       color: $color-white;
-      background-color: $color-app-light-blue;
+      background-color: $color-app-brand;
+      border: 1px solid $color-app-brand;
+      font-weight: normal;
+      text-shadow: none;
+
+      &:hover {
+        color: $color-white;
+        background-color: $color-app-light-blue;
+      }
     }
   }
 
