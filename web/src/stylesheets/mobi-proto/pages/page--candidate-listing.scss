@@ -5,7 +5,7 @@
 
 $color-listing-background-grey: #eaeaea;
 
-$table-row-height: 181px;
+$table-row-height: 142px;
 $table-row-column-left-padding: 10px;
 $action-button-height: 40px;
 $score-right-offset: 30%;
@@ -514,8 +514,59 @@ $color-reset-button: rgba(144, 144, 144, 0.55);
     font-weight: bold;
   }
 
-  .notes-wrapper   {
-    margin-top: 5px;
+  .notes-wrapper {
+    //margin-top: 5px;
+    overflow: hidden;
+    text-align: justify;
+    //margin-right: -1em;
+    padding-right: 1em;
+    display: none;
+    height: 0;
+
+    @include breakpoint($bp-tablets-portrait) {
+      display: inline-block;
+      vertical-align: middle;
+      width: 75%;
+      line-height: 1rem;
+      max-height: 2rem;
+      height: auto;
+      position: relative;
+      padding-left: 1rem;
+
+      /* create the ... */
+      &:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: #F7F7F7;
+      }
+
+    }
+
+    @include breakpoint($bp-desktop) {
+      position: absolute;
+      right: 10px;
+      top: 0;
+      width: 48%;
+      max-height: 100%;
+      line-height: 1.2rem;
+
+      &:before {
+        bottom: 2px;
+      }
+
+    }
+
   }
 
   .candidate-invite-date {
