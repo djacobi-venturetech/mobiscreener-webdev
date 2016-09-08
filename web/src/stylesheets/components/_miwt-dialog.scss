@@ -8,6 +8,8 @@ div.window.dialog /*specificity*/ {
 	@include box-shadow(0 3px 9px rgba(0,0,0,.5));
 	// Remove focus outline from opened modal
 	outline: 0;
+	//Remove the border
+	border: none;
 
 	&::before {
 	  content: '';
@@ -25,6 +27,10 @@ div.window.dialog /*specificity*/ {
 	  background-color: $color-app-grey;
 	  height: 70px;
 	  color: $color-white;
+
+		.titlebar_row {
+			height: 100%;
+		}
 	}
 
 	td.activewindowtitle {
@@ -54,7 +60,7 @@ div.window.dialog /*specificity*/ {
 		}
 	}
 	.windowcontent {
-		top: 70px;
+		top: 69px;
 		padding:15px;
 		border:none;
 		background-color: $app-page-bg;
