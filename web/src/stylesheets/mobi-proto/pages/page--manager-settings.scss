@@ -41,6 +41,10 @@
     min-width: 59px;
     text-align: right;
 
+    @include breakpoint($bp-tablets-portrait) {
+        width: 90px;
+    }
+
     &:after {
       content: "%";
       font-size: 20px;
@@ -160,6 +164,10 @@
   }
   input[type="range"]:focus::-ms-fill-upper {
     background: #DEDEDE;
+  }
+  input[type="range"][disabled="disabled"] {
+    opacity: .25;
+    cursor: default !important;
   }
 }
 
