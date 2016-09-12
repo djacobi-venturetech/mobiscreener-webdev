@@ -54,10 +54,22 @@ $prop-margin-top: 10px;
     border-bottom: 10px solid $trigger-btn-dark-blue;
     background-color: $trigger-btn-light-blue;
     font-size: 22px;
+    padding: .375rem 1.5rem .375rem 1rem;
+    @include glyphAddAfter("\f0d7");
+    position: relative;
+
+    &::after {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      margin-top: -12px;
+      font-size: 25px !important;
+    }
 
     &:hover {
       background-color: lighten($trigger-btn-light-blue, 5%);
     }
+
   }
 
   & + & .trigger {
@@ -74,6 +86,7 @@ $prop-margin-top: 10px;
       background-color: $trigger-btn-grey;
       color: $trigger-btn-dark-blue;
       border-bottom-color: $trigger-btn-light-blue;
+      @include glyphAddAfter("\f0d8");
 
       &:hover {
         background-color: lighten($trigger-btn-grey, 5%);
