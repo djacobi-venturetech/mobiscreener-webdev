@@ -134,6 +134,43 @@ section {
 	}
 }
 
+.support-button-container {
+	display: block;
+	position: fixed;
+	right: -12px;
+	bottom: 40px;
+	z-index: 9;
+
+	.support-button {
+		display: inline-block;
+		padding: .5rem 1rem;
+		position: relative;
+	}
+
+	a {
+		display: inline-block;
+		color: transparent;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 25px;
+		@include glyphAddBefore("\f059");
+		font-size: 1rem;
+
+		&::before {
+			font-size: 25px !important;
+			color: $color-app-lighter-grey !important;
+			text-shadow: none !important;
+		}
+
+	}
+
+	@include breakpoint($bp-tablets-landscape) {
+		right: 0;
+		bottom: 0;
+	}
+
+}
+
 .miwt-calendar {
 	button.open,
 	button.clear {
