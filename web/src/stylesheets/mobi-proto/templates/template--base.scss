@@ -44,6 +44,11 @@ body {
 		align-items: flex-end;
 		margin-left: auto;
 
+		h1 {
+			font-size: 1.75rem;
+			line-height: 1.5;
+		}
+
 		@include breakpoint($bp-tablets-landscape) {
 			display: none;
 		}

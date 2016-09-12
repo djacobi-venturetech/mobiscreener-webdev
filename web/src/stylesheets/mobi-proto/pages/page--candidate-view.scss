@@ -160,8 +160,8 @@ $button-glyph-hieght: 36px;
       @include breakpoint($bp-tablets-portrait) {
         height: 40px;
         width: auto;
-        display: inline-flex;
-        align-items: center;
+        display: inline-block;
+        //align-items: center;
       }
 
       + .btn {
