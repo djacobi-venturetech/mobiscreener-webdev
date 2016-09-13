@@ -5,7 +5,7 @@
 
 $color-listing-background-grey: #eaeaea;
 
-$table-row-height: 142px;
+$table-row-height: 152px;
 $table-row-column-left-padding: 10px;
 $action-button-height: 40px;
 $score-right-offset: 30%;
@@ -642,6 +642,11 @@ $table-row-tablet-height: 146px;
     padding-top: 5px;
     font-family: Helvetica, Arial, serif;
 
+    .score-percentile-label {
+      font-size: .75rem;
+      margin-top: -5px;
+    }
+
     #invitations & {
       color: $color-app-lighter-grey;
     }
@@ -656,23 +661,23 @@ $table-row-tablet-height: 146px;
       padding-top: 0;
     }
 
-    .score-value:after {
+    /*.score-value:after {
       content: "%";
       font-size: 20px;
       margin-left: 2px;
       font-weight: normal;
-    }
+    }*/
 
     .overall-score {
       position: relative;
       height: 50%;
-      padding: 10px;
+      padding: 0 10px 10px;
       text-align: center;
 
       @include breakpoint($bp-tablets-portrait) {
-        margin-top: 25px;
+        margin-top: 5px;
         height: auto;
-        padding-bottom: 5px;
+        padding: 10px 10px 5px;
       }
 
       .score-label {
@@ -685,7 +690,7 @@ $table-row-tablet-height: 146px;
           font-size: 15px;
         }
         @include breakpoint($bp-tablets-portrait) {
-          line-height: 18px;
+          line-height: 16px;
           font-size: 18px;
         }
       }
@@ -693,6 +698,7 @@ $table-row-tablet-height: 146px;
       .score-value {
         font-size: 28px;
         line-height: 28px;
+        margin-top: -3px;
 
         @include breakpoint($bp-tablets-portrait) {
           line-height: 30px;
@@ -723,18 +729,19 @@ $table-row-tablet-height: 146px;
       }
 
       .sub-score-container {
-        display: table-cell;
+        //display: table-cell;
+        display: inline-block;
         width: 50%;
-        padding: 4px 0;
+        padding: 4px;
 
         & + .sub-score-container {
           border-left: 1px solid rgb(191, 191, 191);
         }
       }
 
-      .score-value::after {
+      /*.score-value::after {
         font-size: 11px;
-      }
+      }*/
 
       .color-high-score {
         @include addScoreTextColors('high');
@@ -751,7 +758,7 @@ $table-row-tablet-height: 146px;
       @include breakpoint($bp-mobile-landscape) {
         .score-value {
           font-size: 18px;
-          line-height: 18px;
+          line-height: 1;
         }
 
         .score-label {
@@ -763,23 +770,27 @@ $table-row-tablet-height: 146px;
       @include breakpoint($bp-tablets-portrait) {
         .score-value {
           font-size: 22px;
-          line-height: 22px;
+          line-height: 1;
+          margin: 3px 0;
 
-          &:after {
+          /*&:after {
             font-size: 16px;
-          }
+          }*/
         }
 
         .score-label {
-          font-size: 16px;
+          font-size: 14px;
           line-height: 15px;
         }
       }
+
     }
 
     .score-label {
       font-size: 10px;
-      line-height: 6px;
+      line-height: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     $score-bar-height: 15px;
