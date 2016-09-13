@@ -281,23 +281,23 @@
     height: 100vh;
     flex-flow: column nowrap;
     padding: 1rem 0;
-    border-right: 5px solid transparent;
+    border-right: 5px solid #d17837;
     border-bottom: none;
 
     #invitations & {
-      border-color: $color-app-pink;
+      border-color: #ef2ced;
     }
 
     #candidates & {
-      border-color: $color-app-blue;
+      border-color: #1a98c2;
     }
 
     #employees & {
-      border-color: $color-app-green;
+      border-color: #28b23c;
     }
 
     #archives & {
-      border-color: $color-app-yellow;
+      border-color: #cdab23;
     }
 
 	.logo-con {
@@ -347,9 +347,31 @@
 		  align-self: center;
 		  width: 100%;
 
-		  + li {
+          &.invitations {
 
-		  }
+            &.mi-active > a, > a:hover {
+              @include gradient-horizontal($start-color: $color-app-pink, $end-color: #ef2ced, $start-percent: 0%, $end-percent: 100%);
+            }
+
+          }
+
+          &.candidates {
+            &.mi-active > a, > a:hover {
+              @include gradient-horizontal($start-color: $color-app-blue, $end-color: #1a98c2, $start-percent: 0%, $end-percent: 100%);
+            }
+          }
+
+          &.employees {
+            &.mi-active > a, > a:hover {
+              @include gradient-horizontal($start-color: $color-app-green, $end-color: #28b23c, $start-percent: 0%, $end-percent: 100%);
+            }
+          }
+
+          &.archives {
+            &.mi-active > a, > a:hover {
+              @include gradient-horizontal($start-color: $color-app-yellow, $end-color: #cdab23, $start-percent: 0%, $end-percent: 100%);
+            }
+          }
 
 		  > a {
 
