@@ -329,7 +329,7 @@ $table-row-tablet-height: 146px;
   .miwt-collapsable-content {
 
     @include breakpoint($bp-tablets-portrait) {
-      max-width: 11.25rem;
+      max-width: 12rem;
     }
 
     .btn {
@@ -477,7 +477,7 @@ $table-row-tablet-height: 146px;
 
     @include breakpoint($bp-tablets-portrait)
     {
-      width: 40%;
+      width: 45%;
     }
   }
 
@@ -690,8 +690,8 @@ $table-row-tablet-height: 146px;
           font-size: 15px;
         }
         @include breakpoint($bp-tablets-portrait) {
-          line-height: 16px;
-          font-size: 18px;
+          line-height: 18px;
+          font-size: 16px;
         }
       }
 
