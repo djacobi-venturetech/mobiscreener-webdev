@@ -2,7 +2,7 @@
 
 #header {
   background: $color-white;
-  padding: .75rem 1rem;
+  padding: .25rem 1rem;
   width: 100%;
   height: auto;
   display: flex;
@@ -33,7 +33,11 @@
   .logo-con {
 	flex: 1 0 0;
 	justify-content: space-between;
-	  max-width: 4rem;
+    max-width: 5rem;
+
+    #login-body & {
+      max-width: 6rem;
+    }
 
 	a {
 	  display: block;
@@ -283,6 +287,7 @@
     padding: 1rem 0;
     border-right: 5px solid #d17837;
     border-bottom: none;
+    z-index: 102;
 
     #invitations & {
       border-color: #ef2ced;
@@ -313,8 +318,17 @@
       border: 5px solid #000;
       align-self: center;
 
+      #login-body & {
+        max-width: 10rem;
+      }
+
       img {
         padding: 1rem;
+
+        #login-body & {
+          padding: 1rem .5rem;
+        }
+
       }
 
 	  .fa.fa-bars {
