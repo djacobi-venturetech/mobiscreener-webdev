@@ -306,12 +306,12 @@ $prop-padding: 15px;
     color: $color-app-lighter-grey;
   }
 
-  .score-value:after {
+  /*.score-value:after {
     content: "%";
     font-size: 20px;
     margin-left: 2px;
     font-weight: normal;
-  }
+  }*/
 
   .overall-container {
     display: table-cell;
